@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ============================================================
+   PALETA AZUL · EXATEC 360 — Mejores Prácticas Monterrey
+   El acento cyan (--color-accent) se reserva SOLO para el
+   dato más importante de cada pantalla.
+   ============================================================ */
+@theme {
+  --color-bg-deep: #060b1c;
+  --color-blue-900: #0c1a3a;
+  --color-blue-700: #15348a;
+  --color-blue-500: #2d6be0;
+  --color-accent: #46e5ff;
+  --color-text: #eaf0ff;
+  --color-text-dim: #8a9bc4;
+
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-deep);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden; /* la presentación gestiona sus propias escenas */
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+/* cifras con figuras tabulares para count-ups estables */
+.tabular {
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg-deep);
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

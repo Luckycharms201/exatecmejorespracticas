@@ -1,0 +1,66 @@
+# Mejores Prácticas Monterrey · EXATEC 360
+
+Presentación web interactiva **hub-and-spoke** (no es un slideshow lineal): un hub
+central tipo constelación del que salen las secciones. Construida con **React + Vite +
+GSAP + Tailwind v4**.
+
+## Correr en local
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+```
+
+- `npm run build` — bundle de producción en `dist/`
+- `npm run preview` — sirve el build localmente
+- `#lab` — laboratorio temporal de primitivas de dato (ej. `localhost:5173/#lab`)
+
+## Navegación
+
+- **Hub:** `← →` mueven el foco entre grupos · `Enter` entra al grupo (zoom de cámara)
+- **Sección:** `← →` recorren la secuencia global 1→13 · `Esc` vuelve al hub
+- Click y hover también funcionan
+
+## Estructura
+
+```
+src/
+  data/presentation.js   ← ÚNICA fuente de verdad (grupos → slides → datos)
+  hooks/                 ← useNavigation, useSlideTimeline
+  components/
+    Hub/                 ← constelación + geometría orbital
+    Stage/               ← FitStage (escala 16:9), Stage, SlideShell
+    slides/              ← un componente por tipo de slide
+    dataviz/             ← CountUp, DotGrid, ZoomScale, iMessageThread
+    ui/                  ← Placeholder, Highlight, SlideHeading, AmbientBackground
+    dev/DataLab.jsx      ← preview de primitivas (#lab), se puede borrar
+```
+
+13 slides en 3 grupos: **Regreso a Casa** (1–6), **Agrupaciones** (7–12),
+**Líderes de Generación** (13).
+
+## Contenido pendiente de reemplazar
+
+Todo vive en `src/data/presentation.js` (busca los comentarios `PLACEHOLDER`):
+
+- **Videos** (slides 2, 9, 11): marcos `VIDEO #n` por reemplazar.
+- **Fotos**: cada `Placeholder` tiene un `#n` y una nota.
+- **Slide 6 · NPS**: valores `editions[]` y `comments[]` reales.
+- **Slide 8 · Talleres** y **12 · Monto**: numeralia/montos reales.
+- **Slide 10 · Torneos**: pendiente de ampliar (`pending: true`).
+
+## Deploy a Cloudflare Pages
+
+**Opción A — conectar el repo (recomendado, auto-deploy en cada push):**
+en Cloudflare Pages crea un proyecto desde este repo con:
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+
+**Opción B — subida directa:**
+
+```bash
+npm run deploy   # build + wrangler pages deploy dist
+```
+
+(Requiere estar autenticado en Wrangler: `npx wrangler login`.)
