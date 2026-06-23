@@ -29,21 +29,15 @@ export default function SlideTours({ slide }) {
     <div ref={scope} className="flex h-full w-full flex-col gap-8 py-2">
       <SlideHeading kicker={slide.kicker} title={slide.title} />
 
-      <div className="grid flex-1 grid-cols-1 items-stretch gap-8 md:grid-cols-2">
+      <div className="grid flex-1 grid-cols-1 items-start gap-8 md:grid-cols-2">
         {slide.sections.map((sec, i) => (
-          <div
-            key={sec.heading}
-            className={[
-              "tour-block flex flex-col gap-4",
-              i === 1 ? "md:mt-12" : "",
-            ].join(" ")}
-          >
+          <div key={sec.heading} className="tour-block flex flex-col gap-4">
             <Placeholder
               n={slide.placeholders[i]?.n}
               note={slide.placeholders[i]?.note}
               src={slide.placeholders[i]?.src}
               alt={slide.placeholders[i]?.alt}
-              className="min-h-[200px] flex-1"
+              className="aspect-[3/2] w-full"
             />
             <div>
               <div className="flex items-baseline gap-3">
