@@ -27,16 +27,16 @@ export default function SlideMonto({ slide }) {
     <div ref={scope} className="flex h-full w-full flex-col gap-6 py-2">
       <SlideHeading kicker={slide.kicker} title={slide.title} />
 
-      <div className="grid flex-1 grid-cols-1 items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+      <div className="grid flex-1 grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1fr]">
         {/* hero total */}
         <div className="mto-hero">
-          <span className="text-text-dim text-xs tracking-[0.3em] uppercase">
+          <span className="text-text-dim text-sm tracking-[0.3em] uppercase">
             Total recaudado
           </span>
-          <div className="text-accent mt-2 text-7xl font-black leading-none md:text-8xl">
+          <div className="text-accent mt-3 text-8xl font-black leading-[0.9] tracking-tight md:text-[9.5rem]">
             <CountUp value={slide.total} prefix="$" duration={2.4} />
           </div>
-          <span className="text-text-dim mt-3 block text-lg font-medium">
+          <span className="text-text-dim mt-4 block text-xl font-medium">
             MXN
           </span>
         </div>
