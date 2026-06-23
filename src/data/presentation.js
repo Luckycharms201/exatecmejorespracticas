@@ -221,8 +221,8 @@ export const GROUPS = [
         stats: [
           { value: 3, label: "Talleres impartidos" },
           { value: 177, label: "Asistentes" },
-          { value: 100, suffix: "%", label: "Asistencia" },
           { value: 163990, prefix: "$", label: "Recaudado" },
+          { value: 100, suffix: "%", label: "Asistencia" },
         ],
         placeholders: [
           { n: 1, kind: "image", note: "Taller" },
