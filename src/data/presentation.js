@@ -245,7 +245,7 @@ export const GROUPS = [
           {
             name: "Tochito",
             raised: 186200,
-            photo: { n: 1, note: "Torneo de Tochito" },
+            photo: { n: 1, note: "Torneo de Tochito", src: "/media/tochito.webp", alt: "Torneo de Tochito" },
             stats: [
               { value: 56, label: "Equipos inscritos" },
               { value: 670, label: "Niños participando" },
@@ -255,7 +255,7 @@ export const GROUPS = [
           {
             name: "Golf",
             raised: 500000,
-            photo: { n: 2, note: "Torneo de Golf" },
+            photo: { n: 2, note: "Torneo de Golf", src: "/media/golf.webp", alt: "Torneo de Golf" },
             stats: [{ value: 120, label: "Participantes" }],
           },
         ],
