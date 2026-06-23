@@ -225,8 +225,8 @@ export const GROUPS = [
           { value: 100, suffix: "%", label: "Asistencia" },
         ],
         placeholders: [
-          { n: 1, kind: "image", note: "Taller" },
-          { n: 2, kind: "image", note: "Taller" },
+          { n: 1, kind: "image", note: "Taller", src: "/media/taller_1.webp", alt: "Taller · Educación Continua" },
+          { n: 2, kind: "image", note: "Taller", src: "/media/taller_2.webp", alt: "Taller · Educación Continua" },
         ],
       },
       {

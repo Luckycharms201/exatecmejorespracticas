@@ -27,6 +27,8 @@ export default function SlideTalleres({ slide }) {
               key={p.n}
               n={p.n}
               note={p.note}
+              src={p.src}
+              alt={p.alt}
               className="tll-photo min-h-[180px]"
             />
           ))}
