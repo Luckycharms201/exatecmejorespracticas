@@ -264,13 +264,13 @@ export const GROUPS = [
         type: "monto",
         title: "Monto Recaudado en Eventos",
         kicker: "Impacto de la comunidad",
-        // PLACEHOLDER — montos reales pendientes
-        total: 1875000,
+        total: 846200,
+        // ordenado de mayor a menor: el acento (fila 0) resalta el dominante
         breakdown: [
-          { name: "Regreso a Casa", amount: 920000 },
-          { name: "Talleres", amount: 410000 },
-          { name: "Torneos", amount: 320000 },
-          { name: "Otros eventos", amount: 225000 },
+          { name: "EXATEC Blue Open", amount: 500000 },
+          { name: "Borregos Flag Cup", amount: 186200 },
+          { name: "EXATEC Wealth Strategy", amount: 90000 },
+          { name: "Arte, Cultura y Conexión", amount: 70000 },
         ],
       },
     ],
