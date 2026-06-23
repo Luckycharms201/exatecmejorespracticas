@@ -101,7 +101,13 @@ export const GROUPS = [
             src: "/media/vestimenta_rac.webp",
             alt: "Vestimenta oficial · Regreso a Casa",
           },
-          { n: 2, kind: "image", note: "Photo opportunity" },
+          {
+            n: 2,
+            kind: "image",
+            note: "Photo opportunity",
+            src: "/media/photo_ops.webp",
+            alt: "Photo ops · Regreso a Casa",
+          },
           {
             n: 3,
             kind: "image",
