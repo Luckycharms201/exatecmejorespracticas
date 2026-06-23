@@ -11,13 +11,7 @@ import { nodePosition } from "./hubLayout";
  * `active` (= view === "hub") dispara la entrada animada cada vez que
  * volvemos al hub: líneas que se dibujan + nodos con stagger blur-in.
  */
-export default function Hub({
-  active,
-  focusedGroupIndex,
-  onFocus,
-  onEnter,
-  onPresent,
-}) {
+export default function Hub({ active, focusedGroupIndex, onFocus, onEnter }) {
   const rootRef = useRef(null);
   const nodes = GROUPS.map((g) => ({ ...g, pos: nodePosition(g.hub.angle) }));
 
@@ -132,18 +126,10 @@ export default function Hub({
         );
       })}
 
-      {/* presentar en vivo (modo lineal) */}
-      <div className="absolute inset-x-0 bottom-9 z-20 flex flex-col items-center gap-3">
-        <button
-          onClick={onPresent}
-          className="border-accent/50 bg-accent/10 text-accent hover:bg-accent/20 rounded-full border px-6 py-2.5 text-xs font-semibold tracking-[0.25em] uppercase backdrop-blur-sm transition"
-        >
-          ▶ Presentar en vivo
-        </button>
-        <p className="text-text-dim text-xs tracking-[0.2em]">
-          ← → ELEGIR · ENTER ENTRAR · P PRESENTAR
-        </p>
-      </div>
+      {/* pista de teclado */}
+      <p className="text-text-dim absolute inset-x-0 bottom-10 z-20 text-center text-xs tracking-[0.2em]">
+        ← → ELEGIR · ENTER ENTRAR
+      </p>
     </div>
   );
 }

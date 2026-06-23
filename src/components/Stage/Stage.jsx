@@ -29,19 +29,12 @@ const SLIDE_COMPONENTS = {
   journey: SlideJourney,
 };
 
-export default function Stage({ slide, currentN, total, linear, onBack, onJump }) {
+export default function Stage({ slide, currentN, total, onBack }) {
   if (!slide) return null;
   const SlideComponent = SLIDE_COMPONENTS[slide.type] ?? SlideGeneric;
 
   return (
-    <SlideShell
-      slide={slide}
-      currentN={currentN}
-      total={total}
-      linear={linear}
-      onBack={onBack}
-      onJump={onJump}
-    >
+    <SlideShell slide={slide} currentN={currentN} total={total} onBack={onBack}>
       {/* key = slide.id → remonta cada slide y reinicia su timeline limpia */}
       <SlideComponent key={slide.id} slide={slide} />
     </SlideShell>

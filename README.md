@@ -17,18 +17,9 @@ npm run dev      # http://localhost:5173
 
 ## Navegación
 
-Dos modos coexisten:
-
-- **Hub (exploración):** `← →` mueven el foco entre grupos · `Enter` entra al grupo
-  (zoom de cámara) · `P` (o el botón **▶ Presentar en vivo**) arranca el modo lineal.
-- **Modo lineal (presentar en vivo):** recorrido de corrido 1→13 sin volver al hub.
-  Un **eje diagonal de cristal** (efecto tempered glass/gradient, inclinado en 3D) se
-  sobrepone a la izquierda como guía: muestra la secuencia completa, un *playhead* que
-  avanza y el título/foto/área del slide actual, con un pulso cada vez que cambia de
-  área. Clic en un nodo del eje salta a ese slide. `Esc` sale al hub.
-- **Sección (entrando por un grupo):** `← →` recorren la secuencia global 1→13 ·
-  `Esc` vuelve al hub.
-- Click y hover también funcionan.
+- **Hub:** `← →` mueven el foco entre grupos · `Enter` entra al grupo (zoom de cámara)
+- **Sección:** `← →` recorren la secuencia global 1→13 · `Esc` vuelve al hub
+- Click y hover también funcionan
 
 ## Estructura
 
