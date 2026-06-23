@@ -1,5 +1,6 @@
 import { useSlideTimeline } from "../../hooks/useSlideTimeline";
 import SlideHeading from "../ui/SlideHeading";
+import Placeholder from "../ui/Placeholder";
 import CountUp from "../dataviz/CountUp";
 
 /**
@@ -59,7 +60,21 @@ export default function SlideTorneos({ slide }) {
               </div>
             </div>
 
-            <div className="mt-auto flex flex-wrap gap-x-10 gap-y-5">
+            {/* frame horizontal de la foto del torneo (la imagen va en
+                absoluto/object-cover para recortarse sin desbordar) */}
+            {t.photo && (
+              <div className="relative min-h-0 w-full flex-1 overflow-hidden rounded-xl">
+                <Placeholder
+                  n={t.photo.n}
+                  note={t.photo.note}
+                  src={t.photo.src}
+                  alt={t.photo.alt}
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-x-10 gap-y-5">
               {t.stats?.map((s, i) => (
                 <div key={i}>
                   <div className="text-text text-4xl font-black leading-none">
