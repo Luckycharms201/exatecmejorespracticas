@@ -41,6 +41,8 @@ export default function SlideTours({ slide }) {
             <Placeholder
               n={slide.placeholders[i]?.n}
               note={slide.placeholders[i]?.note}
+              src={slide.placeholders[i]?.src}
+              alt={slide.placeholders[i]?.alt}
               className="min-h-[200px] flex-1"
             />
             <div>

@@ -2,9 +2,37 @@
  * Placeholder de medio numerado — marca dónde irá una foto o video.
  * El número (#n) permite referirlo después ("la foto #2 va aquí").
  * `kind`: "image" | "video".
+ *
+ * Cuando ya hay activo real, se pasa `src` (y opcional `alt`) y el
+ * componente muestra la foto a tamaño completo en lugar del marcador.
  */
-export default function Placeholder({ n, kind = "image", note, className = "" }) {
+export default function Placeholder({
+  n,
+  kind = "image",
+  note,
+  src,
+  alt,
+  className = "",
+}) {
   const isVideo = kind === "video";
+
+  if (src) {
+    return (
+      <div
+        className={[
+          "relative overflow-hidden rounded-xl border border-blue-700",
+          className,
+        ].join(" ")}
+      >
+        <img
+          src={src}
+          alt={alt ?? note ?? ""}
+          className="h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={[

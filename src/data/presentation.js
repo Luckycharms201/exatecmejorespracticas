@@ -55,7 +55,13 @@ export const GROUPS = [
           },
         ],
         placeholders: [
-          { n: 1, kind: "image", note: "Tour — identidad" },
+          {
+            n: 1,
+            kind: "image",
+            note: "Tour — identidad",
+            src: "/media/RAC3540-09.jpg",
+            alt: "Tour de identidad · Regreso a Casa",
+          },
           { n: 2, kind: "image", note: "Tour — logística" },
         ],
       },
