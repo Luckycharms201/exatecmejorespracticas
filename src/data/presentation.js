@@ -83,7 +83,7 @@ export const GROUPS = [
             body: "Línea de prendas oficiales que unifica al evento y refuerza el orgullo EXATEC.",
           },
           {
-            heading: "Photo Ops",
+            heading: "Photo Opportunities",
             sub: "Momentos para compartir",
             body: "Estaciones fotográficas diseñadas para volverse contenido en redes.",
           },
