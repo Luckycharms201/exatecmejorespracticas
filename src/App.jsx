@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useNavigation } from "./hooks/useNavigation";
+import { NavContext } from "./hooks/navContext";
 import { GROUPS, SEQUENCE, LIVE_SEQUENCE } from "./data/presentation";
 import { nodePosition } from "./components/Hub/hubLayout";
 import Hub from "./components/Hub/Hub";
@@ -113,6 +114,7 @@ export default function App() {
   }
 
   return (
+    <NavContext.Provider value={nav}>
     <FitStage>
       <main className="bg-bg-deep absolute inset-0 overflow-hidden">
         <AmbientBackground />
@@ -162,5 +164,6 @@ export default function App() {
         </div>
       </main>
     </FitStage>
+    </NavContext.Provider>
   );
 }

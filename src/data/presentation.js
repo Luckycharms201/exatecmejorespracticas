@@ -295,15 +295,77 @@ export const GROUPS = [
         type: "journey",
         title: "Journey LDG",
         kicker: "El camino del Líder de Generación",
-        // roadmap adaptado del Canva (copy refinable)
-        steps: [
-          { title: "Convocatoria / Nominación", desc: "Se abre la convocatoria y la comunidad nomina a sus candidatos." },
-          { title: "Validación de Perfil", desc: "Se revisa el perfil de los nominados que cumplen requisitos." },
-          { title: "Sesión Informativa", desc: "Los seleccionados conocen el alcance del programa." },
-          { title: "Carta de Compromiso", desc: "Firman su compromiso como Líderes de Generación." },
-          { title: "Eventos PST", desc: "Participan en los eventos Por Siempre Tec." },
-          { title: "Desayuno de Bienvenida", desc: "Desayuno LdG: bienvenida oficial a la comunidad." },
+        // Recorrido interactivo: cada avance (flecha/clic) pasa por un punto.
+        // `popup.slides[].media`: video-vertical | video-horizontal |
+        // photo-horizontal | pst.  `text:true` muestra título+subtítulo grande.
+        // `highlight: true` → sin popup, sólo se resalta el nodo.
+        points: [
+          {
+            title: "Convocatoria / Nominación",
+            sub: "Se abre la convocatoria y la comunidad nomina a sus candidatos.",
+            popup: {
+              slides: [
+                { media: "video-vertical", text: true },
+                { media: "video-horizontal" },
+              ],
+            },
+          },
+          {
+            title: "Validación de Perfil",
+            sub: "Se revisa el perfil de los nominados que cumplen requisitos.",
+            highlight: true,
+          },
+          {
+            title: "Sesión Informativa",
+            sub: "Los seleccionados conocen el alcance del programa.",
+            popup: { slides: [{ media: "video-vertical", text: true }] },
+          },
+          {
+            title: "Carta de Compromiso",
+            sub: "Firman su compromiso como Líderes de Generación.",
+            highlight: true,
+          },
+          {
+            title: "Ceremonia de Bienvenida",
+            sub: "Evento donde se nombra a los nuevos líderes de generación.",
+            popup: { slides: [{ media: "video-vertical", text: true }] },
+          },
+          {
+            title: "Eventos de PST",
+            sub: "Participan en los eventos Por Siempre Tec.",
+            popup: {
+              slides: [
+                { media: "video-horizontal" },
+                { media: "pst" },
+                { media: "video-horizontal" },
+              ],
+            },
+          },
+          {
+            title: "Seguimiento",
+            sub: "Reuniones anuales de líderes de generación.",
+            popup: { slides: [{ media: "photo-horizontal", text: true }] },
+          },
         ],
+        // contenido del slide central del popup de "Eventos de PST" (pst.png)
+        pst: {
+          heading: "¿Cómo colabora EXATEC y LDG en los eventos de Por Siempre Tec?",
+          events: [
+            {
+              name: "Patada del Éxito",
+              items: [
+                { who: "LDG", what: "Entrega de foto de Generación a Director de Carrera" },
+              ],
+            },
+            {
+              name: "Ceremonia de Luz",
+              items: [
+                { who: "LDG", what: "Depositan cartas a la Cápsula del Tiempo" },
+                { who: "EXATEC", what: "Speech · Video de Reflexión" },
+              ],
+            },
+          ],
+        },
         // resultados (crecimiento de participación en nominación)
         results: [
           { period: "Ago–Dic 2024", lideres: 29, participacion: 17 },

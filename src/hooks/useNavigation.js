@@ -31,6 +31,9 @@ export function useNavigation() {
   const [isFullscreen, setIsFullscreen] = useState(
     () => !!document.fullscreenElement
   );
+  // cuando una slide interactiva (ej. Journey) toma el control de las flechas,
+  // el manejador global las ignora y la slide las gestiona internamente.
+  const [navLock, setNavLock] = useState(false);
 
   const current =
     view === "live"
@@ -138,16 +141,20 @@ export function useNavigation() {
         return;
       }
 
-      // view === "section" | "live": recorrido lineal con flechas
+      // view === "section" | "live": recorrido lineal con flechas.
+      // Si una slide interactiva tomó el control (navLock), no avanzamos:
+      // sólo dejamos pasar Escape para salir.
       switch (e.key) {
         case "ArrowRight":
         case "PageDown":
         case " ":
+          if (navLock) break;
           e.preventDefault();
           next();
           break;
         case "ArrowLeft":
         case "PageUp":
+          if (navLock) break;
           e.preventDefault();
           prev();
           break;
@@ -172,6 +179,7 @@ export function useNavigation() {
     focusNextGroup,
     focusPrevGroup,
     toggleFullscreen,
+    navLock,
   ]);
 
   return {
@@ -191,5 +199,7 @@ export function useNavigation() {
     prev,
     toggleFullscreen,
     setFocusedGroupIndex,
+    navLock,
+    setNavLock,
   };
 }
