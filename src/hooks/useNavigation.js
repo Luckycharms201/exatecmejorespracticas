@@ -21,6 +21,9 @@ export function useNavigation() {
   const [view, setView] = useState("hub");
   const [currentN, setCurrentN] = useState(1);
   const [focusedGroupIndex, setFocusedGroupIndex] = useState(0);
+  // modo lineal: recorrido 1→N de corrido para presentar EN VIVO, con el eje
+  // diagonal de cristal como guía en lugar de volver al hub entre grupos.
+  const [linear, setLinear] = useState(false);
 
   const current = SEQUENCE[currentN - 1] ?? null;
 
@@ -28,7 +31,20 @@ export function useNavigation() {
     const first = firstSlideOfGroup(groupId);
     if (!first) return;
     setCurrentN(first.n);
+    setLinear(false);
     setView("section");
+  }, []);
+
+  // arranca el modo presentación lineal desde el slide 1.
+  const startLinear = useCallback(() => {
+    setCurrentN(1);
+    setLinear(true);
+    setView("section");
+  }, []);
+
+  // salto directo a cualquier slide (clic en un nodo del eje).
+  const goTo = useCallback((n) => {
+    setCurrentN(Math.min(Math.max(n, 1), TOTAL_SLIDES));
   }, []);
 
   const enterFocusedGroup = useCallback(() => {
@@ -40,6 +56,7 @@ export function useNavigation() {
     // al volver, deja el foco sobre el grupo que estábamos viendo
     const cur = SEQUENCE[currentN - 1];
     if (cur) setFocusedGroupIndex(cur.groupIndex);
+    setLinear(false);
     setView("hub");
   }, [currentN]);
 
@@ -78,6 +95,11 @@ export function useNavigation() {
             e.preventDefault();
             enterFocusedGroup();
             break;
+          case "p":
+          case "P":
+            e.preventDefault();
+            startLinear();
+            break;
           default:
             break;
         }
@@ -113,16 +135,20 @@ export function useNavigation() {
     enterFocusedGroup,
     focusNextGroup,
     focusPrevGroup,
+    startLinear,
   ]);
 
   return {
     view,
+    linear,
     current,
     currentN,
     total: TOTAL_SLIDES,
     focusedGroupIndex,
     enterGroup,
+    startLinear,
     goToHub,
+    goTo,
     next,
     prev,
     setFocusedGroupIndex,

@@ -106,6 +106,7 @@ export default function App() {
             focusedGroupIndex={nav.focusedGroupIndex}
             onFocus={nav.setFocusedGroupIndex}
             onEnter={nav.enterGroup}
+            onPresent={nav.startLinear}
           />
         </div>
 
@@ -119,7 +120,9 @@ export default function App() {
             slide={nav.current}
             currentN={nav.currentN}
             total={nav.total}
+            linear={nav.linear}
             onBack={nav.goToHub}
+            onJump={nav.goTo}
           />
         </div>
       </main>
