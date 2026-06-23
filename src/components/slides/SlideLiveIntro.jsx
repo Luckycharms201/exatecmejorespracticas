@@ -3,14 +3,13 @@ import { META } from "../../data/presentation";
 
 /**
  * Portada de arranque del MODO LIVE. Es la primera slide que se ve al entrar
- * a la presentación en vivo: logo, kicker, título grande y pista de avance.
+ * a la presentación en vivo: kicker, título grande y pista de avance.
  */
 export default function SlideLiveIntro({ slide }) {
   const words = (slide.title ?? META.title).split(" ");
 
   const scope = useSlideTimeline((tl) => {
-    tl.from(".intro-logo", { opacity: 0, y: -24, duration: 0.7 })
-      .from(".intro-kicker", { opacity: 0, y: 12, duration: 0.6 }, "-=0.4")
+    tl.from(".intro-kicker", { opacity: 0, y: 12, duration: 0.6 })
       .from(
         ".intro-word",
         {
@@ -36,12 +35,6 @@ export default function SlideLiveIntro({ slide }) {
       ref={scope}
       className="flex h-full w-full flex-col items-center justify-center gap-9 text-center"
     >
-      <img
-        src={META.logo}
-        alt={META.title}
-        className="intro-logo h-14 w-auto opacity-90"
-      />
-
       <p className="intro-kicker text-accent text-sm font-semibold tracking-[0.5em] uppercase">
         {slide.kicker ?? META.subtitle}
       </p>
