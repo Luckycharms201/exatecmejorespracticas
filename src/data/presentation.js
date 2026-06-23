@@ -266,3 +266,24 @@ export const firstSlideOfGroup = (groupId) =>
   SEQUENCE.find((s) => s.groupId === groupId);
 
 export const slideAt = (n) => SEQUENCE[n - 1] ?? null;
+
+/**
+ * MODO LIVE — presentación en vivo.
+ * Slide de título que arranca el recorrido + la secuencia completa detrás.
+ * `groupIndex: -1` marca la portada (no pertenece a ningún área).
+ */
+export const LIVE_INTRO = {
+  id: "live-intro",
+  type: "liveIntro",
+  title: META.title,
+  kicker: META.subtitle,
+  groupName: "Inicio",
+  groupIndex: -1,
+};
+
+export const LIVE_SEQUENCE = [LIVE_INTRO, ...SEQUENCE].map((item, i) => ({
+  ...item,
+  liveN: i + 1,
+}));
+
+export const LIVE_TOTAL = LIVE_SEQUENCE.length;
