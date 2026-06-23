@@ -38,8 +38,8 @@ export default function SlideCover({ slide }) {
       className="flex h-full w-full flex-col items-center justify-center gap-8 text-center"
     >
       <img
-        src={META.logo}
-        alt="Regreso a Casa"
+        src={slide.logo ?? META.logo}
+        alt={slide.logoAlt ?? META.title}
         className="cover-logo h-12 w-auto opacity-90"
       />
 

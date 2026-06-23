@@ -212,6 +212,8 @@ export const GROUPS = [
         type: "cover",
         title: "Agrupaciones",
         kicker: "Mejores Prácticas · Monterrey",
+        logo: "/brand/logo-exatec-blanco.webp",
+        logoAlt: "EXATEC",
       },
       {
         id: "agr-talleres",
