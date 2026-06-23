@@ -121,19 +121,33 @@ export const GROUPS = [
         type: "nps",
         title: "NPS · Regreso a Casa",
         kicker: "Satisfacción de la comunidad",
-        // PLACEHOLDER — reemplazar con NPS reales por edición
-        editions: [
-          { name: "RAC 2022", nps: 71 },
-          { name: "RAC 2023", nps: 78 },
-          { name: "RAC 2024", nps: 84 },
-          { name: "RAC 2025", nps: 89 },
+        // Comparativo año vs año: el promedio saltó de 44.7 a 64.8 (+20.1 pts).
+        // Cada año se mide por segmento de generación (RAC).
+        years: [
+          {
+            year: "2024",
+            average: 44.7,
+            segments: [
+              { label: "RAC 5–15", value: 42 },
+              { label: "RAC 20–35", value: 63 },
+              { label: "RAC 40+", value: 29 },
+            ],
+          },
+          {
+            year: "2025",
+            average: 64.8,
+            segments: [
+              { label: "RAC 5–15", value: 43 },
+              { label: "RAC 20", value: 70 },
+              { label: "RAC 25–30", value: 82 },
+              { label: "RAC 35–40", value: 64 },
+            ],
+          },
         ],
-        // PLACEHOLDER — reemplazar con comentarios reales
         comments: [
-          { from: "them", text: "Volver al campus después de años fue emocionante 🥹", time: "RAC 2024" },
-          { from: "them", text: "La logística estuvo impecable, cero filas.", time: "RAC 2024" },
-          { from: "them", text: "Ya aparté la fecha para el próximo. 10/10", time: "RAC 2025" },
-          { from: "them", text: "Reencontrarme con mi generación no tiene precio.", time: "RAC 2025" },
+          "Me encantó el reencuentro con mis compañeros y el tour por las nuevas instalaciones. Orgullosa de ser EXATEC.",
+          "Me encantó cada detalle, desde la recepción, mensajes, cena de gala, desayuno, recorridos… pero especialmente la evolución del Tec en estos 40 años.",
+          "Me gustó todo, especialmente que hayan mejorado la logística de la cena, con mesas asignadas. También que los mensajes fueran en el Luis Elizondo, breves, con apoyo audiovisual y muy poderosos. Me siento orgullosa del Tec y de mi generación.",
         ],
       },
     ],
