@@ -29,17 +29,19 @@ export default function SlideTours({ slide }) {
     <div ref={scope} className="flex h-full w-full flex-col gap-8 py-2">
       <SlideHeading kicker={slide.kicker} title={slide.title} />
 
-      <div className="grid flex-1 grid-cols-1 items-start gap-8 md:grid-cols-2">
+      <div className="grid min-h-0 flex-1 grid-cols-1 items-stretch gap-8 md:grid-cols-2">
         {slide.sections.map((sec, i) => (
-          <div key={sec.heading} className="tour-block flex flex-col gap-4">
+          <div key={sec.heading} className="tour-block flex min-h-0 flex-col gap-4">
+            {/* la imagen llena el alto restante (igual en ambas columnas) */}
             <Placeholder
               n={slide.placeholders[i]?.n}
               note={slide.placeholders[i]?.note}
               src={slide.placeholders[i]?.src}
               alt={slide.placeholders[i]?.alt}
-              className="aspect-[3/2] w-full"
+              className="min-h-0 w-full flex-1"
             />
-            <div>
+            {/* subtítulo: alto reservado igual para que los frames coincidan */}
+            <div className="min-h-28 shrink-0">
               <div className="flex items-baseline gap-3">
                 <span className="text-accent tabular text-sm font-bold">
                   0{i + 1}
