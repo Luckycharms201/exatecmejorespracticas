@@ -240,16 +240,22 @@ export const GROUPS = [
         type: "torneos",
         title: "Torneos",
         kicker: "Comunidad en movimiento",
-        pending: true, // el usuario dará más info después
-        // PLACEHOLDER — disciplinas y numeralia por definir
         disciplines: ["Tochito", "Padel", "Golf"],
-        stats: [
-          { value: 16, label: "Equipos" },
-          { value: 240, label: "Participantes" },
-        ],
-        placeholders: [
-          { n: 1, kind: "image", note: "Torneos" },
-          { n: 2, kind: "image", note: "Torneos" },
+        tournaments: [
+          {
+            name: "Tochito",
+            raised: 186200,
+            stats: [
+              { value: 56, label: "Equipos inscritos" },
+              { value: 670, label: "Niños participando" },
+              { value: 76, label: "Papás EXATEC" },
+            ],
+          },
+          {
+            name: "Golf",
+            raised: 500000,
+            stats: [{ value: 120, label: "Participantes" }],
+          },
         ],
       },
       {
