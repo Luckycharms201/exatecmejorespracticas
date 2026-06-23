@@ -9,6 +9,7 @@ import SlideTalleres from "./SlideTalleres";
 import SlideTorneos from "./SlideTorneos";
 import SlideMonto from "./SlideMonto";
 import SlideJourney from "./SlideJourney";
+import SlideJourneyPopup from "./SlideJourneyPopup";
 import SlideLiveIntro from "./SlideLiveIntro";
 
 /**
@@ -26,6 +27,7 @@ export const SLIDE_COMPONENTS = {
   torneos: SlideTorneos,
   monto: SlideMonto,
   journey: SlideJourney,
+  journeyPopup: SlideJourneyPopup,
   liveIntro: SlideLiveIntro,
 };
 

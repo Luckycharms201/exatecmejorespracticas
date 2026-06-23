@@ -16,6 +16,57 @@ export const META = {
   logo: "/brand/logo-rac-blanco.png",
 };
 
+/* ---------------- Journey LDG (manejado como slides separadas) ----------------
+ * El recorrido se compone de slides reales en la secuencia: una slide de
+ * "línea del tiempo" (roadmap) que resalta el punto en turno, seguida de las
+ * slides-popup de ese punto. Así la navegación es la lineal de siempre.
+ */
+const JOURNEY_POINTS = [
+  { title: "Convocatoria / Nominación", sub: "Se abre la convocatoria y la comunidad nomina a sus candidatos." },
+  { title: "Validación de Perfil", sub: "Se revisa el perfil de los nominados que cumplen requisitos." },
+  { title: "Sesión Informativa", sub: "Los seleccionados conocen el alcance del programa." },
+  { title: "Carta de Compromiso", sub: "Firman su compromiso como Líderes de Generación." },
+  { title: "Ceremonia de Bienvenida", sub: "Evento donde se nombra a los nuevos líderes de generación." },
+  { title: "Eventos de PST", sub: "Participan en los eventos Por Siempre Tec." },
+  { title: "Seguimiento", sub: "Reuniones anuales de líderes de generación." },
+];
+
+const JOURNEY_RESULTS = [
+  { period: "Ago–Dic 2024", lideres: 29, participacion: 17 },
+  { period: "Feb–Jun 2025", lideres: 90, participacion: 33 },
+  { period: "Ago–Dic 2025", lideres: 52, participacion: 42 },
+];
+
+const JOURNEY_PST = {
+  heading: "¿Cómo colabora EXATEC y LDG en los eventos de Por Siempre Tec?",
+  events: [
+    {
+      name: "Patada del Éxito",
+      items: [{ who: "LDG", what: "Entrega de foto de Generación a Director de Carrera" }],
+    },
+    {
+      name: "Ceremonia de Luz",
+      items: [
+        { who: "LDG", what: "Depositan cartas a la Cápsula del Tiempo" },
+        { who: "EXATEC", what: "Speech · Video de Reflexión" },
+      ],
+    },
+  ],
+};
+
+const JOURNEY_KICKER = "El camino del Líder de Generación";
+// slide de línea del tiempo resaltando el punto `i`
+const journeyRoadmap = (i) => ({
+  id: `ldg-roadmap-${i + 1}`,
+  type: "journey",
+  kicker: JOURNEY_KICKER,
+  title: "Journey LDG",
+  points: JOURNEY_POINTS,
+  results: JOURNEY_RESULTS,
+  highlight: i,
+});
+const journeyPopup = (id, fields) => ({ id, type: "journeyPopup", ...fields });
+
 export const GROUPS = [
   {
     id: "regreso",
@@ -290,89 +341,28 @@ export const GROUPS = [
     short: "LDG",
     hub: { angle: 30 },
     slides: [
-      {
-        id: "ldg-journey",
-        type: "journey",
-        title: "Journey LDG",
-        kicker: "El camino del Líder de Generación",
-        // Recorrido interactivo: cada avance (flecha/clic) pasa por un punto.
-        // `popup.slides[].media`: video-vertical | video-horizontal |
-        // photo-horizontal | pst.  `text:true` muestra título+subtítulo grande.
-        // `highlight: true` → sin popup, sólo se resalta el nodo.
-        points: [
-          {
-            title: "Convocatoria / Nominación",
-            sub: "Se abre la convocatoria y la comunidad nomina a sus candidatos.",
-            popup: {
-              slides: [
-                { media: "video-vertical", text: true },
-                { media: "video-horizontal" },
-              ],
-            },
-          },
-          {
-            title: "Validación de Perfil",
-            sub: "Se revisa el perfil de los nominados que cumplen requisitos.",
-            highlight: true,
-          },
-          {
-            title: "Sesión Informativa",
-            sub: "Los seleccionados conocen el alcance del programa.",
-            popup: { slides: [{ media: "video-vertical", text: true }] },
-          },
-          {
-            title: "Carta de Compromiso",
-            sub: "Firman su compromiso como Líderes de Generación.",
-            highlight: true,
-          },
-          {
-            title: "Ceremonia de Bienvenida",
-            sub: "Evento donde se nombra a los nuevos líderes de generación.",
-            popup: { slides: [{ media: "video-vertical", text: true }] },
-          },
-          {
-            title: "Eventos de PST",
-            sub: "Participan en los eventos Por Siempre Tec.",
-            popup: {
-              slides: [
-                { media: "video-horizontal" },
-                { media: "pst" },
-                { media: "video-horizontal" },
-              ],
-            },
-          },
-          {
-            title: "Seguimiento",
-            sub: "Reuniones anuales de líderes de generación.",
-            popup: { slides: [{ media: "photo-horizontal", text: true }] },
-          },
-        ],
-        // contenido del slide central del popup de "Eventos de PST" (pst.png)
-        pst: {
-          heading: "¿Cómo colabora EXATEC y LDG en los eventos de Por Siempre Tec?",
-          events: [
-            {
-              name: "Patada del Éxito",
-              items: [
-                { who: "LDG", what: "Entrega de foto de Generación a Director de Carrera" },
-              ],
-            },
-            {
-              name: "Ceremonia de Luz",
-              items: [
-                { who: "LDG", what: "Depositan cartas a la Cápsula del Tiempo" },
-                { who: "EXATEC", what: "Speech · Video de Reflexión" },
-              ],
-            },
-          ],
-        },
-        // resultados (crecimiento de participación en nominación)
-        results: [
-          { period: "Ago–Dic 2024", lideres: 29, participacion: 17 },
-          { period: "Feb–Jun 2025", lideres: 90, participacion: 33 },
-          { period: "Ago–Dic 2025", lideres: 52, participacion: 42 },
-        ],
-      },
+      // PUNTO 1 — popup doble (video vertical + texto → video horizontal)
+      journeyRoadmap(0),
+      journeyPopup("ldg-p1a", { point: JOURNEY_POINTS[0], pointN: 1, media: "video-vertical", text: true }),
+      journeyPopup("ldg-p1b", { media: "video-horizontal" }),
+      // PUNTO 2 — sólo highlight (la línea con el nodo resaltado)
+      journeyRoadmap(1),
+      // PUNTO 3 — popup (video vertical + texto)
+      journeyRoadmap(2),
+      journeyPopup("ldg-p3", { point: JOURNEY_POINTS[2], pointN: 3, media: "video-vertical", text: true }),
+      // PUNTO 4 — sólo highlight
+      journeyRoadmap(3),
+      // PUNTO 5 — popup (video vertical + texto)
+      journeyRoadmap(4),
+      journeyPopup("ldg-p5", { point: JOURNEY_POINTS[4], pointN: 5, media: "video-vertical", text: true }),
+      // PUNTO 6 — popup triple (video h → pst → video h)
+      journeyRoadmap(5),
+      journeyPopup("ldg-p6a", { media: "video-horizontal" }),
+      journeyPopup("ldg-p6b", { media: "pst", pst: JOURNEY_PST }),
+      journeyPopup("ldg-p6c", { media: "video-horizontal" }),
+      // PUNTO 7 — popup (foto horizontal + texto)
+      journeyRoadmap(6),
+      journeyPopup("ldg-p7", { point: JOURNEY_POINTS[6], pointN: 7, media: "photo-horizontal", text: true }),
     ],
   },
 ];
