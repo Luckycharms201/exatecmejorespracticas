@@ -20,12 +20,18 @@ export default function SlideJourney({ slide }) {
   const results = slide.results ?? [];
   const nav = useNav();
 
-  // secuencia plana de "paradas": arribo + una por sub-slide/highlight
+  // secuencia plana de "paradas". Tras los sub-slides de un popup se inserta
+  // una parada con el popup CERRADO (sólo la línea, con el punto resaltado),
+  // así al pasar de punto se vuelve a ver el journey antes del siguiente.
   const stops = useMemo(() => {
-    const arr = [{ point: -1, sub: null }];
+    const arr = [{ point: -1, sub: null, popup: false }];
     points.forEach((p, i) => {
-      if (p.popup) p.popup.slides.forEach((_, j) => arr.push({ point: i, sub: j }));
-      else arr.push({ point: i, sub: null });
+      if (p.popup) {
+        p.popup.slides.forEach((_, j) => arr.push({ point: i, sub: j, popup: true }));
+        arr.push({ point: i, sub: null, popup: false }); // popup cerrado
+      } else {
+        arr.push({ point: i, sub: null, popup: false }); // highlight
+      }
     });
     return arr;
   }, [points]);
@@ -33,10 +39,9 @@ export default function SlideJourney({ slide }) {
   const [ci, setCi] = useState(0);
   const cur = stops[ci];
   const activePoint = cur.point;
-  const activePopup =
-    activePoint >= 0 && points[activePoint].popup && cur.sub != null
-      ? { point: points[activePoint], sub: cur.sub, index: activePoint }
-      : null;
+  const activePopup = cur.popup
+    ? { point: points[activePoint], sub: cur.sub, index: activePoint }
+    : null;
 
   const forward = () => setCi((c) => Math.min(c + 1, stops.length - 1));
   const back = () =>
@@ -115,7 +120,6 @@ export default function SlideJourney({ slide }) {
           {points.map((p, i) => {
             const above = i % 2 === 0;
             const active = i === activePoint;
-            const done = i < activePoint;
             return (
               <div key={i} className="relative flex flex-1 flex-col items-center">
                 <div
@@ -142,12 +146,7 @@ export default function SlideJourney({ slide }) {
                   style={{ transform: active ? "scale(1.35)" : "scale(1)" }}
                 >
                   <div
-                    className={[
-                      "journey-node bg-bg-deep flex h-12 w-12 items-center justify-center rounded-full font-bold ring-2 transition-colors",
-                      active || done
-                        ? "ring-accent text-accent"
-                        : "ring-blue-500 text-text-dim",
-                    ].join(" ")}
+                    className="journey-node bg-bg-deep ring-accent text-accent flex h-12 w-12 items-center justify-center rounded-full font-bold ring-2"
                     style={{
                       boxShadow: active ? "0 0 26px 4px var(--color-accent)" : "none",
                     }}
