@@ -141,9 +141,27 @@ export const GROUPS = [
           },
         ],
         placeholders: [
-          { n: 1, kind: "image", note: "Registro" },
-          { n: 2, kind: "image", note: "Gafetes" },
-          { n: 3, kind: "image", note: "Acomodo de mesas" },
+          {
+            n: 1,
+            kind: "image",
+            note: "Registro",
+            src: "/media/registro.webp",
+            alt: "Módulos de registro · Regreso a Casa",
+          },
+          {
+            n: 2,
+            kind: "image",
+            note: "Gafetes",
+            src: "/media/gafetes.webp",
+            alt: "Gafetes y listones · Regreso a Casa",
+          },
+          {
+            n: 3,
+            kind: "image",
+            note: "Acomodo de mesas",
+            src: "/media/mesas.webp",
+            alt: "Acomodo de mesas · cena de gala",
+          },
         ],
       },
       {

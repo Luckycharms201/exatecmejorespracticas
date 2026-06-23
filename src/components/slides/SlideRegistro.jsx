@@ -40,6 +40,8 @@ export default function SlideRegistro({ slide }) {
               <Placeholder
                 n={slide.placeholders[i]?.n}
                 note={slide.placeholders[i]?.note}
+                src={slide.placeholders[i]?.src}
+                alt={slide.placeholders[i]?.alt}
                 className="min-h-[130px] flex-1"
               />
               <p className="text-text-dim text-sm leading-snug">{sec.body}</p>
