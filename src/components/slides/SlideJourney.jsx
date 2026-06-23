@@ -43,11 +43,21 @@ export default function SlideJourney({ slide }) {
     ? { point: points[activePoint], sub: cur.sub, index: activePoint }
     : null;
 
-  const forward = () => setCi((c) => Math.min(c + 1, stops.length - 1));
+  // refs estables: `nav` es un objeto nuevo en cada render, así que NO debe
+  // ir en deps de efectos (causaba un bucle infinito de renders que congelaba
+  // la animación de entrada y "borraba" círculos y textos).
+  const navRef = useRef(nav);
+  const maxRef = useRef(stops.length - 1);
+  useEffect(() => {
+    navRef.current = nav;
+    maxRef.current = stops.length - 1;
+  });
+
+  const forward = () => setCi((c) => Math.min(c + 1, maxRef.current));
   const back = () =>
     setCi((c) => {
       if (c <= 0) {
-        nav?.prev(); // al inicio, salir a la slide anterior
+        navRef.current?.prev(); // al inicio, salir a la slide anterior
         return 0;
       }
       return c - 1;
@@ -55,9 +65,9 @@ export default function SlideJourney({ slide }) {
 
   // tomar el control de la navegación mientras la slide esté montada
   useEffect(() => {
-    nav?.setNavLock(true);
-    return () => nav?.setNavLock(false);
-  }, [nav]);
+    navRef.current?.setNavLock(true);
+    return () => navRef.current?.setNavLock(false);
+  }, []);
 
   // teclado propio (las flechas globales están bloqueadas por navLock)
   useEffect(() => {
@@ -80,8 +90,7 @@ export default function SlideJourney({ slide }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stops.length, nav]);
+  }, []);
 
   // animación de entrada de la slide
   const scope = useSlideTimeline((tl) => {
