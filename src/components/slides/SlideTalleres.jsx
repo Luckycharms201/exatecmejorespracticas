@@ -19,18 +19,23 @@ export default function SlideTalleres({ slide }) {
     <div ref={scope} className="flex h-full w-full flex-col gap-8 py-2">
       <SlideHeading kicker={slide.kicker} title={slide.title} />
 
-      <div className="grid flex-1 grid-cols-1 gap-8 lg:grid-cols-2">
-        {/* fotos — frames horizontales apilados */}
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-8 lg:grid-cols-2 lg:grid-rows-1">
+        {/* fotos — frames horizontales apilados; la imagen va en absoluto
+            (object-cover) para que se recorte y no estire el frame */}
         <div className="flex min-h-0 flex-col gap-4">
           {slide.placeholders.map((p) => (
-            <Placeholder
+            <div
               key={p.n}
-              n={p.n}
-              note={p.note}
-              src={p.src}
-              alt={p.alt}
-              className="tll-photo min-h-0 w-full flex-1"
-            />
+              className="tll-photo relative min-h-0 w-full flex-1 overflow-hidden rounded-xl"
+            >
+              <Placeholder
+                n={p.n}
+                note={p.note}
+                src={p.src}
+                alt={p.alt}
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
           ))}
         </div>
 
