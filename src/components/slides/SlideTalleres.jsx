@@ -20,8 +20,8 @@ export default function SlideTalleres({ slide }) {
       <SlideHeading kicker={slide.kicker} title={slide.title} />
 
       <div className="grid flex-1 grid-cols-1 gap-8 lg:grid-cols-2">
-        {/* fotos */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* fotos — frames horizontales apilados */}
+        <div className="flex min-h-0 flex-col gap-4">
           {slide.placeholders.map((p) => (
             <Placeholder
               key={p.n}
@@ -29,7 +29,7 @@ export default function SlideTalleres({ slide }) {
               note={p.note}
               src={p.src}
               alt={p.alt}
-              className="tll-photo min-h-[180px]"
+              className="tll-photo min-h-0 w-full flex-1"
             />
           ))}
         </div>
