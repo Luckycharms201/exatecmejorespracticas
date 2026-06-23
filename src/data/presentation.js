@@ -218,12 +218,11 @@ export const GROUPS = [
         type: "talleres",
         title: "Talleres",
         kicker: "En colaboración con Educación Continua",
-        // PLACEHOLDER — numeralia real pendiente
         stats: [
-          { value: 24, label: "Talleres impartidos" },
-          { value: 1180, label: "Asistentes" },
-          { value: 92, suffix: "%", label: "Satisfacción" },
-          { value: 8, label: "Áreas de conocimiento" },
+          { value: 3, label: "Talleres impartidos" },
+          { value: 177, label: "Asistentes" },
+          { value: 100, suffix: "%", label: "Asistencia" },
+          { value: 163990, prefix: "$", label: "Recaudado" },
         ],
         placeholders: [
           { n: 1, kind: "image", note: "Taller" },
