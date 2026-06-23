@@ -17,10 +17,14 @@ export default function Placeholder({
   const isVideo = kind === "video";
 
   if (src) {
+    // OJO: no fijar `relative` aquí. Tailwind ordena `.relative` después de
+    // `.absolute`, así que ganaría sobre un `absolute inset-0` pasado por la
+    // slide y la imagen quedaría en flujo (rompe layouts como Identidad).
+    // La posición la decide quien usa el componente vía `className`.
     return (
       <div
         className={[
-          "relative overflow-hidden rounded-xl border border-blue-700",
+          "overflow-hidden rounded-xl border border-blue-700",
           className,
         ].join(" ")}
       >
