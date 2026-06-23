@@ -242,7 +242,7 @@ export const GROUPS = [
         kicker: "Comunidad en movimiento",
         pending: true, // el usuario dará más info después
         // PLACEHOLDER — disciplinas y numeralia por definir
-        disciplines: ["Tochito", "Fútbol", "Básquetbol", "Vóleibol"],
+        disciplines: ["Tochito", "Padel", "Golf"],
         stats: [
           { value: 16, label: "Equipos" },
           { value: 240, label: "Participantes" },
