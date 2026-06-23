@@ -39,6 +39,8 @@ export default function SlideIdentidad({ slide }) {
             <Placeholder
               n={slide.placeholders[i]?.n}
               note={slide.placeholders[i]?.note}
+              src={slide.placeholders[i]?.src}
+              alt={slide.placeholders[i]?.alt}
               className="absolute inset-0 h-full w-full rounded-2xl"
             />
             {/* degradado + texto al pie */}

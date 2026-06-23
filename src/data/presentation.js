@@ -94,9 +94,21 @@ export const GROUPS = [
           },
         ],
         placeholders: [
-          { n: 1, kind: "image", note: "Vestimenta" },
+          {
+            n: 1,
+            kind: "image",
+            note: "Vestimenta",
+            src: "/media/vestimenta_rac.webp",
+            alt: "Vestimenta oficial · Regreso a Casa",
+          },
           { n: 2, kind: "image", note: "Photo opportunity" },
-          { n: 3, kind: "image", note: "Diseño de estolas" },
+          {
+            n: 3,
+            kind: "image",
+            note: "Diseño de estolas",
+            src: "/media/estola_diseno.webp",
+            alt: "Diseño de estolas conmemorativas",
+          },
         ],
       },
       {
