@@ -59,10 +59,16 @@ export const GROUPS = [
             n: 1,
             kind: "image",
             note: "Tour — identidad",
-            src: "/media/RAC3540-09.jpg",
+            src: "/media/RAC3540-09.webp",
             alt: "Tour de identidad · Regreso a Casa",
           },
-          { n: 2, kind: "image", note: "Tour — logística" },
+          {
+            n: 2,
+            kind: "image",
+            note: "Tour — logística",
+            src: "/media/logistica_tour.webp",
+            alt: "Nueva logística de tours · Regreso a Casa",
+          },
         ],
       },
       {
