@@ -349,7 +349,7 @@ export const GROUPS = [
       journeyRoadmap(1),
       // PUNTO 3 — popup (video vertical + texto)
       journeyRoadmap(2),
-      journeyPopup("ldg-p3", { point: JOURNEY_POINTS[2], pointN: 3, media: "video-vertical", text: true }),
+      journeyPopup("ldg-p3", { point: JOURNEY_POINTS[2], pointN: 3, media: "video-vertical", text: true, src: "/media/sesion.mp4" }),
       // PUNTO 4 — sólo highlight
       journeyRoadmap(3),
       // PUNTO 5 — popup (video vertical + texto)
