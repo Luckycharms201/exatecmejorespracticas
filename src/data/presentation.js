@@ -106,8 +106,8 @@ export const GROUPS = [
         sections: [
           {
             heading: "Identidad",
-            body: "Se renovó la identidad visual de los tours para alinearla con la imagen del evento y mantener una comunicación visual coherente en todos los puntos de contacto.",
-            keywords: ["identidad visual", "comunicación visual coherente"],
+            body: "Se renovó la identidad visual de los tours para alinearla con la imagen del evento y conectar mejor con los recuerdos de los egresados.",
+            keywords: ["identidad visual", "recuerdos de los egresados"],
           },
           {
             heading: "Nueva logística",
