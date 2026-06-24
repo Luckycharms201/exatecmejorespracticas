@@ -24,7 +24,8 @@ import {
  *   En todo momento: F alterna pantalla completa.
  */
 export function useNavigation() {
-  const [view, setView] = useState("hub");
+  // el sitio arranca directo en la presentación (modo live), sin hub
+  const [view, setView] = useState("live");
   const [currentN, setCurrentN] = useState(1);
   const [liveN, setLiveN] = useState(1);
   const [focusedGroupIndex, setFocusedGroupIndex] = useState(0);
@@ -159,9 +160,12 @@ export function useNavigation() {
           prev();
           break;
         case "Escape":
-          e.preventDefault();
-          if (view === "live") exitLive();
-          else goToHub();
+          // sin hub: en live, Escape no hace nada (el navegador maneja salir
+          // de pantalla completa). En sección (legado) vuelve al hub.
+          if (view === "section") {
+            e.preventDefault();
+            goToHub();
+          }
           break;
         default:
           break;
