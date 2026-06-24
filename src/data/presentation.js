@@ -250,6 +250,34 @@ export const GROUPS = [
           "Impresionado con cómo ha cambiado el campus. La clase del recuerdo (Ing. José Antonio Fernández) estuvo de maravilla, aparte de que me causó un poco de nostalgia acordarme que alguna vez fue mi profesor.",
         ],
       },
+      {
+        id: "rac-retos",
+        type: "retos",
+        title: "Retos RAC",
+        kicker: "Regreso a Casa",
+        items: [
+          {
+            lead: "Asignación personalizada de mesas",
+            body: "Llamadas 1 a 1 para definir la integración de mesas por generación, considerando preferencias de ubicación e integrantes.",
+          },
+          {
+            lead: "Personalización manual de gafetes",
+            body: "Elaboración de gafetes con información personalizada (nombre, número de mesa y número de tour).",
+          },
+          {
+            lead: "Convocatoria y asistencia al evento",
+            body: "Requiere una estrategia de difusión multicanal (WhatsApp, LinkedIn, correo, radio, redes sociales y pauta digital) para impulsar la participación.",
+          },
+          {
+            lead: "Alta inversión y carga operativa",
+            body: "Gran demanda de inversión y horas de trabajo para la planeación y ejecución del evento.",
+          },
+          {
+            lead: "Gestión simultánea de eventos",
+            body: "4 eventos de Regreso a Casa en 1 semestre, más eventos y actividades EXATEC adicionales.",
+          },
+        ],
+      },
     ],
   },
   {

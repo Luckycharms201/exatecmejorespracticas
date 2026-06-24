@@ -9,6 +9,7 @@ import SlideNPS from "./SlideNPS";
 import SlideTalleres from "./SlideTalleres";
 import SlideTorneos from "./SlideTorneos";
 import SlideMonto from "./SlideMonto";
+import SlideRetos from "./SlideRetos";
 import SlideJourney from "./SlideJourney";
 import SlideJourneyPopup from "./SlideJourneyPopup";
 import SlideLiveIntro from "./SlideLiveIntro";
@@ -28,6 +29,7 @@ export const SLIDE_COMPONENTS = {
   talleres: SlideTalleres,
   torneos: SlideTorneos,
   monto: SlideMonto,
+  retos: SlideRetos,
   journey: SlideJourney,
   journeyPopup: SlideJourneyPopup,
   liveIntro: SlideLiveIntro,
