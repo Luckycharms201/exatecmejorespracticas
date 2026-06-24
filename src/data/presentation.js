@@ -357,9 +357,9 @@ export const GROUPS = [
       journeyPopup("ldg-p5", { point: JOURNEY_POINTS[4], pointN: 5, media: "video-vertical", text: true }),
       // PUNTO 6 — popup triple (video h → pst → video h)
       journeyRoadmap(5),
-      journeyPopup("ldg-p6a", { media: "video-horizontal" }),
+      journeyPopup("ldg-p6a", { media: "video-horizontal", src: "/media/PSTrecap.mp4" }),
       journeyPopup("ldg-p6b", { media: "pst", pst: JOURNEY_PST }),
-      journeyPopup("ldg-p6c", { media: "video-horizontal", src: "/media/PSTrecap.mp4" }),
+      journeyPopup("ldg-p6c", { media: "video-horizontal", src: "/media/videopau.mp4" }),
       // PUNTO 7 — popup (foto horizontal + texto)
       journeyRoadmap(6),
       journeyPopup("ldg-p7", { point: JOURNEY_POINTS[6], pointN: 7, media: "photo-horizontal", text: true, src: "/media/seguimiento.webp" }),
