@@ -49,14 +49,14 @@ const JOURNEY_PST = {
     },
     {
       name: "Patada del Éxito",
-      logo: { top: "PATADA", script: "del", bottom: "ÉXITO" },
+      logoImg: "/media/logo-patada.webp",
       items: [
         { who: "LDG", what: "Entrega de fotografías de Líderes de Generación a Directores de Carrera" },
       ],
     },
     {
       name: "Ceremonia de la Luz",
-      logo: { top: "CEREMONIA", script: "de la", bottom: "LUZ" },
+      logoImg: "/media/logo-ceremonia.webp",
       items: [
         { who: "LDG", what: "Depósito de cartas en la cápsula del tiempo" },
         { who: "EXATEC", what: "Discurso del mundo EXATEC por Karla López + video reflexivo sobre la importancia de la comunidad" },

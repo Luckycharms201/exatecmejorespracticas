@@ -96,8 +96,10 @@ function PstContent({ pst }) {
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
         {pst.events.map((ev) => (
           <div key={ev.name} className="flex items-center gap-8">
-            <div className="flex h-28 w-72 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 px-4 text-center shadow-[0_0_30px_-8px_var(--color-blue-500)]">
-              {ev.logo ? (
+            <div className="flex h-28 w-72 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-center shadow-[0_0_30px_-8px_var(--color-blue-500)]">
+              {ev.logoImg ? (
+                <img src={ev.logoImg} alt={ev.name} className="h-full w-full object-cover" />
+              ) : ev.logo ? (
                 <EventLogo logo={ev.logo} />
               ) : (
                 <span className="text-lg font-black uppercase text-white">{ev.name}</span>
