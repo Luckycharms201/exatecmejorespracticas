@@ -1,6 +1,7 @@
 import SlideGeneric from "./SlideGeneric";
 import SlideCover from "./SlideCover";
 import SlideVideo from "./SlideVideo";
+import SlideVideoTrio from "./SlideVideoTrio";
 import SlideTours from "./SlideTours";
 import SlideIdentidad from "./SlideIdentidad";
 import SlideRegistro from "./SlideRegistro";
@@ -19,6 +20,7 @@ import SlideLiveIntro from "./SlideLiveIntro";
 export const SLIDE_COMPONENTS = {
   cover: SlideCover,
   video: SlideVideo,
+  videoTrio: SlideVideoTrio,
   tours: SlideTours,
   identidad: SlideIdentidad,
   registro: SlideRegistro,

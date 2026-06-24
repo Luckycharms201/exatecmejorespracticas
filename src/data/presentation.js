@@ -284,9 +284,15 @@ export const GROUPS = [
       },
       {
         id: "agr-video-testimonios",
-        type: "video",
+        type: "videoTrio",
         title: "Video · Testimonios",
-        placeholders: [{ n: 1, kind: "video", note: "Video testimonios" }],
+        // 3 videos verticales en simultáneo (izq→der). El central lleva sonido
+        // y no se loopea; los laterales corren muteados en loop.
+        videos: [
+          { src: "/media/testimonio1.mp4", loop: true, muted: true },
+          { src: "/media/testimonio2.mp4", loop: false, muted: false },
+          { src: "/media/testimonio3.mp4", loop: true, muted: true },
+        ],
       },
       {
         id: "agr-torneos",
