@@ -12,13 +12,14 @@ export default function LiveStage({ slide, liveN, total, isFullscreen }) {
   if (!slide) return null;
   const SlideComponent = SLIDE_COMPONENTS[slide.type] ?? SlideGeneric;
   const isIntro = slide.type === "liveIntro";
+  const isBookend = isIntro || slide.type === "equipo";
 
   return (
     <div className="relative flex h-full w-full flex-col">
       {/* barra superior: área + contador */}
       <div className="flex items-center justify-between px-10 pt-7">
         <span className="text-text-dim text-xs tracking-[0.25em] uppercase">
-          {isIntro ? "Mejores Prácticas · Monterrey" : slide.groupName}
+          {isBookend ? "Mejores Prácticas · Monterrey" : slide.groupName}
         </span>
         <span className="text-text-dim tabular text-xs tracking-[0.25em] uppercase">
           {String(liveN).padStart(2, "0")} / {String(total).padStart(2, "0")}

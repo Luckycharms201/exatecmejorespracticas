@@ -13,6 +13,7 @@ import SlideRetos from "./SlideRetos";
 import SlideAgrupacionesList from "./SlideAgrupacionesList";
 import SlideEmbed from "./SlideEmbed";
 import SlideGafetes from "./SlideGafetes";
+import SlideEquipo from "./SlideEquipo";
 import SlideJourney from "./SlideJourney";
 import SlideJourneyPopup from "./SlideJourneyPopup";
 import SlideLiveIntro from "./SlideLiveIntro";
@@ -36,6 +37,7 @@ export const SLIDE_COMPONENTS = {
   agrupacionesList: SlideAgrupacionesList,
   embed: SlideEmbed,
   gafetes: SlideGafetes,
+  equipo: SlideEquipo,
   journey: SlideJourney,
   journeyPopup: SlideJourneyPopup,
   liveIntro: SlideLiveIntro,

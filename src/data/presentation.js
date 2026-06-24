@@ -479,6 +479,14 @@ export const GROUPS = [
           { time: "2:00", item: "Cierre" },
         ],
       }),
+      {
+        id: "cierre-equipo",
+        type: "equipo",
+        title: "Equipo EXATEC Monterrey",
+        logo: "/brand/logo-exatec-blanco.webp",
+        photo: "/media/equipo.webp",
+        photoAlt: "Equipo EXATEC Monterrey",
+      },
     ],
   },
 ];
