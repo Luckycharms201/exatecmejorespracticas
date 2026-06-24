@@ -188,7 +188,7 @@ export const GROUPS = [
           {
             heading: "Registro",
             step: "01",
-            body: "Se implementó un registro mediante códigos QR personalizados enviados por correo y una distribución estratégica de filas para agilizar el acceso.",
+            body: "Se implementó un stand de registro alineado con la identidad del evento para el escaneo de códigos QR, permitiendo identificar rápidamente a cada egresado. Además, se estableció una distribución estratégica de filas para agilizar el acceso al evento.",
           },
           {
             heading: "Gafetes",
