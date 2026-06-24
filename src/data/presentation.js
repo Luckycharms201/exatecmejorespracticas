@@ -216,6 +216,19 @@ export const GROUPS = [
         ],
       },
       {
+        id: "rac-gafetes",
+        type: "gafetes",
+        title: "Gafetes",
+        kicker: "Registro · Regreso a Casa",
+        // emparejados por color: frente (nombre + rol) y reverso (QR)
+        badges: [
+          { label: "55 Aniversario", front: "/media/gafete-azul-frente.webp", back: "/media/gafete-azul-reverso.webp" },
+          { label: "Líder de Generación", front: "/media/gafete-teal-frente.webp", back: "/media/gafete-teal-reverso.webp" },
+          { label: "Staff", front: "/media/gafete-rosa-frente.webp", back: "/media/gafete-rosa-reverso.webp" },
+          { label: "Acompañante", front: "/media/gafete-gris-frente.webp", back: "/media/gafete-gris-reverso.webp" },
+        ],
+      },
+      {
         id: "rac-gafetes-qr",
         type: "embed",
         title: "Del gafete a tu celular",

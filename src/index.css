@@ -87,6 +87,23 @@ button {
 .jp-pop { animation: jp-pop 0.42s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .jp-fade { animation: jp-fade 0.4s ease-out; }
 
+/* Gafetes 3D — flip continuo frente↔reverso. Estado base (sin animación)
+   muestra el frente, así que nada se rompe si la animación no corre. */
+@keyframes gafete-flip {
+  0%, 28% { transform: rotateY(0deg); }
+  50%, 78% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+.gafete-card {
+  transform-style: preserve-3d;
+  animation: gafete-flip 7s ease-in-out infinite;
+}
+.gafete-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.gafete-back { transform: rotateY(180deg); }
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
