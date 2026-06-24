@@ -103,14 +103,13 @@ export const GROUPS = [
         sections: [
           {
             heading: "Identidad",
-            // PLACEHOLDER — reemplazar con copy real
-            body: "Recorridos que reconectan a los egresados con la esencia del campus: los espacios que marcaron su paso y la memoria viva del Tec.",
-            keywords: ["esencia del campus", "memoria viva"],
+            body: "Se renovó la identidad visual de los tours para alinearla con la imagen del evento y mantener una comunicación visual coherente en todos los puntos de contacto.",
+            keywords: ["identidad visual", "comunicación visual coherente"],
           },
           {
             heading: "Nueva logística",
-            body: "Rediseñamos rutas, horarios y puntos de encuentro para que cada tour fluya sin filas ni tiempos muertos.",
-            keywords: ["sin filas", "rutas"],
+            body: "Se rediseñó la logística mediante rutas optimizadas, horarios estratégicos para la fotografía en el mural y la asignación de embajadores afines a la carrera de los egresados.",
+            keywords: ["rutas optimizadas", "embajadores afines"],
           },
         ],
         placeholders: [
@@ -139,17 +138,17 @@ export const GROUPS = [
           {
             heading: "Vestimenta",
             sub: "Un código visual único",
-            body: "Línea de prendas oficiales que unifica al evento y refuerza el orgullo EXATEC.",
+            body: "Se diseñaron elementos de ambientación y decoración que transformaron los espacios en algo más memorable e inmersivo.",
           },
           {
             heading: "Photo Opportunities",
             sub: "Momentos para compartir",
-            body: "Estaciones fotográficas diseñadas para volverse contenido en redes.",
+            body: "Se incorporaron espacios fotográficos estratégicos para generar recuerdos memorables y fomentar la interacción de los egresados.",
           },
           {
             heading: "Estolas",
             sub: "Símbolo de pertenencia",
-            body: "Diseño conmemorativo que distingue a cada generación de regreso.",
+            body: "A partir del 40 aniversario se les entregan estolas conmemorativas como símbolo de orgullo y reconocimiento. Cada aniversario tiene un color asignado.",
           },
         ],
         placeholders: [
@@ -186,17 +185,17 @@ export const GROUPS = [
           {
             heading: "Registro",
             step: "01",
-            body: "Registro digital previo: check-in en segundos al llegar.",
+            body: "Se implementó un registro mediante códigos QR personalizados enviados por correo y una distribución estratégica de filas para agilizar el acceso.",
           },
           {
             heading: "Gafetes",
             step: "02",
-            body: "Impresión personalizada al instante con datos de generación.",
+            body: "Se personalizaron los gafetes por aniversario con identificación por color, nombre del egresado, asignación de mesa y tour, además de un código QR por la parte de atrás con acceso a información relevante del evento.",
           },
           {
             heading: "Acomodo de mesas",
             step: "03",
-            body: "Asignación inteligente para reencontrar a tu generación.",
+            body: "Se implementó una selección anticipada de mesas para facilitar el reencuentro entre generaciones. El día del evento hay un acompañamiento a la mesa para una llegada más ágil.",
           },
         ],
         placeholders: [
