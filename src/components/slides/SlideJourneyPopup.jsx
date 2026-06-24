@@ -58,7 +58,23 @@ function PopupBody({ slide }) {
           Punto {String(slide.pointN).padStart(2, "0")}
         </span>
         <h2 className="text-text mt-3 text-5xl leading-tight font-black">{point.title}</h2>
-        <p className="text-text-dim mt-5 text-xl leading-relaxed">{point.sub}</p>
+        <p className="text-text-dim mt-4 text-lg leading-relaxed">{point.sub}</p>
+
+        {slide.agenda && (
+          <ul className="mt-5 flex flex-col gap-1.5">
+            {slide.agenda.map((a, i) => (
+              <li key={i} className="flex items-baseline gap-3 text-sm leading-snug">
+                <span className="text-accent tabular w-12 shrink-0 text-right font-semibold">
+                  {a.time}
+                </span>
+                <span className="text-text">
+                  {a.item}
+                  {a.by && <span className="text-text-dim"> · por {a.by}</span>}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <div
         className={[

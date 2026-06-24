@@ -458,7 +458,24 @@ export const GROUPS = [
       journeyPopup("ldg-p6c", { media: "video-horizontal", src: "/media/videopau.mp4" }),
       // PUNTO 7 — popup (foto horizontal + texto)
       journeyRoadmap(6),
-      journeyPopup("ldg-p7", { point: JOURNEY_POINTS[6], pointN: 7, media: "photo-horizontal", text: true, src: "/media/seguimiento.webp" }),
+      journeyPopup("ldg-p7", {
+        point: JOURNEY_POINTS[6],
+        pointN: 7,
+        media: "photo-horizontal",
+        text: true,
+        src: "/media/seguimiento.webp",
+        agenda: [
+          { time: "9:00", item: "Registro" },
+          { time: "9:30", item: "Bienvenida" },
+          { time: "9:45", item: "Universo y Orgullo EXATEC", by: "Zinia Padilla" },
+          { time: "10:30", item: "Mesa de Trabajo" },
+          { time: "11:00", item: "Break" },
+          { time: "11:10", item: "Sesión de Networking y Capacitación" },
+          { time: "1:10", item: "Mejores Prácticas LDG" },
+          { time: "1:40", item: "Sesión Informativa Regreso a Casa 2026" },
+          { time: "2:00", item: "Cierre" },
+        ],
+      }),
     ],
   },
 ];
