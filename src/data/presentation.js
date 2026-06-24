@@ -216,6 +216,16 @@ export const GROUPS = [
         ],
       },
       {
+        id: "rac-gafetes-qr",
+        type: "embed",
+        title: "Del gafete a tu celular",
+        kicker: "Gafetes · Regreso a Casa",
+        lead: "El QR al reverso del gafete abre la experiencia digital del evento.",
+        body: "Una página con todos los enlaces clave en la mano del asistente.",
+        urlLabel: "raclinks.pages.dev",
+        url: "https://raclinks.pages.dev/",
+      },
+      {
         id: "rac-nps",
         type: "nps",
         title: "NPS · Regreso a Casa",
