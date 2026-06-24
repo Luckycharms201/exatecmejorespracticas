@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# bocetos de referencia (no parte de la app)
+ref.png
+pst.png
