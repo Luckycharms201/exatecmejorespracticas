@@ -317,7 +317,7 @@ export const GROUPS = [
         id: "agr-video-tochito",
         type: "video",
         title: "Video · Torneo de Tochito",
-        placeholders: [{ n: 1, kind: "video", note: "Video torneo tochito" }],
+        placeholders: [{ n: 1, kind: "video", note: "Video torneo tochito", src: "/media/tochito.mp4" }],
       },
       {
         id: "agr-monto",
