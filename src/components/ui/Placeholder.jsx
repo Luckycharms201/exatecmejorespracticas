@@ -25,13 +25,22 @@ export default function Placeholder({
   // bloquea, quedan los controles. Si `fullscreen`, además lo lleva a pantalla
   // completa al entrar (aprovecha el gesto reciente de navegación; si el
   // navegador lo bloquea, queda reproduciendo inline).
+  //
+  // IMPORTANTE: solo pide pantalla completa del video si NO hay ya algo en
+  // pantalla completa. Si el usuario presentó con la tecla F (toda la página en
+  // fullscreen), el video ya se ve grande dentro de esa página; pedir el
+  // fullscreen del <video> reemplazaría el de la página y, al cambiar de slide
+  // (el video se desmonta), el navegador saldría del fullscreen por completo,
+  // sacando al usuario. Por eso aquí se respeta el fullscreen existente.
   const videoRef = useRef(null);
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
     const p = v.play();
     if (p && p.catch) p.catch(() => {});
-    if (fullscreen) {
+    const alreadyFullscreen =
+      document.fullscreenElement || document.webkitFullscreenElement;
+    if (fullscreen && !alreadyFullscreen) {
       const req =
         v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen;
       if (req) {
