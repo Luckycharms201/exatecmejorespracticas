@@ -13,7 +13,7 @@ export default function SlideJourney({ slide }) {
   const highlight = slide.highlight ?? -1;
 
   return (
-    <div className="flex h-full w-full flex-col gap-6 py-2">
+    <div className="jp-fade flex h-full w-full flex-col gap-6 py-2">
       <SlideHeading kicker={slide.kicker} title={slide.title} />
 
       {/* roadmap */}

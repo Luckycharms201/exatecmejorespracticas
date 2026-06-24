@@ -1,15 +1,16 @@
 import Placeholder from "../ui/Placeholder";
 
 /**
- * Slide-popup del Journey LDG. Tarjeta centrada con layout consistente:
- * título + subtítulo grandes a la izquierda y media a la derecha; o media a
- * pantalla (video horizontal); o el slide de PST (estilo pst.png).
- * Render estático para garantizar visibilidad.
+ * Slide-popup del Journey LDG. Tarjeta CONTENIDA (no a pantalla completa) que
+ * se abre con animación, vendiendo que es un popup sobre la línea. Layout
+ * consistente: título + subtítulo grandes a la izquierda y media a la derecha;
+ * o media centrada (video horizontal); o el slide de PST (estilo pst.png).
+ * El media se dimensiona por ALTURA para no desbordar la página.
  */
 export default function SlideJourneyPopup({ slide }) {
   return (
     <div className="flex h-full w-full items-center justify-center py-2">
-      <div className="border-blue-700 bg-blue-900/40 flex h-full w-full flex-col rounded-3xl border p-9 shadow-2xl">
+      <div className="jp-pop border-blue-700 bg-blue-900/40 flex h-[82%] w-[88%] flex-col rounded-3xl border p-10 shadow-2xl">
         <div className="min-h-0 flex-1">
           <PopupBody slide={slide} />
         </div>
@@ -21,11 +22,11 @@ export default function SlideJourneyPopup({ slide }) {
 function PopupBody({ slide }) {
   if (slide.media === "pst") return <PstContent pst={slide.pst} />;
 
-  // video horizontal sin texto: llena la tarjeta
+  // video horizontal sin texto: centrado, dimensionado por altura (no desborda)
   if (!slide.text) {
     return (
       <div className="flex h-full w-full items-center justify-center">
-        <div className="aspect-video max-h-full w-full">
+        <div className="aspect-video h-full max-w-full">
           <Placeholder kind="video" src={slide.src} className="h-full w-full" />
         </div>
       </div>
@@ -39,6 +40,7 @@ function PopupBody({ slide }) {
         <Placeholder kind="image" src={slide.src} className="h-full w-full" />
       </div>
     ) : (
+      // video vertical 9:16, dimensionado por altura
       <div className="aspect-[9/16] h-full">
         <Placeholder kind="video" src={slide.src} className="h-full w-full" />
       </div>
@@ -53,7 +55,7 @@ function PopupBody({ slide }) {
         <h2 className="text-text mt-3 text-5xl leading-tight font-black">{point.title}</h2>
         <p className="text-text-dim mt-5 text-xl leading-relaxed">{point.sub}</p>
       </div>
-      <div className="flex h-full w-[44%] shrink-0 items-center justify-center">{media}</div>
+      <div className="flex h-full w-[42%] shrink-0 items-center justify-center">{media}</div>
     </div>
   );
 }

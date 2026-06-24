@@ -74,6 +74,19 @@ button {
   border: none;
 }
 
+/* Animaciones del Journey (apertura/cierre de popups). Son CSS: el estado
+   base es VISIBLE, así que aunque la animación no corra, nada se oculta. */
+@keyframes jp-pop {
+  from { opacity: 0; transform: scale(0.92) translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes jp-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.jp-pop { animation: jp-pop 0.42s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.jp-fade { animation: jp-fade 0.4s ease-out; }
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
