@@ -96,7 +96,7 @@ button {
 }
 .gafete-card {
   transform-style: preserve-3d;
-  animation: gafete-flip 7s ease-in-out infinite;
+  animation: gafete-flip 10s ease-in-out infinite;
 }
 .gafete-face {
   backface-visibility: hidden;
