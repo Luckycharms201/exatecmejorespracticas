@@ -70,19 +70,20 @@ export function useNavigation() {
     setView("hub");
   }, []);
 
+  // navegación circular: tras la última slide vuelve a la primera y viceversa.
   const next = useCallback(() => {
     if (view === "live") {
-      setLiveN((n) => Math.min(n + 1, LIVE_TOTAL));
+      setLiveN((n) => (n % LIVE_TOTAL) + 1);
     } else {
-      setCurrentN((n) => Math.min(n + 1, TOTAL_SLIDES));
+      setCurrentN((n) => (n % TOTAL_SLIDES) + 1);
     }
   }, [view]);
 
   const prev = useCallback(() => {
     if (view === "live") {
-      setLiveN((n) => Math.max(n - 1, 1));
+      setLiveN((n) => ((n - 2 + LIVE_TOTAL) % LIVE_TOTAL) + 1);
     } else {
-      setCurrentN((n) => Math.max(n - 1, 1));
+      setCurrentN((n) => ((n - 2 + TOTAL_SLIDES) % TOTAL_SLIDES) + 1);
     }
   }, [view]);
 
