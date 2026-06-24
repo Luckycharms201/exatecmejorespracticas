@@ -379,7 +379,7 @@ export const GROUPS = [
       {
         id: "agr-monto",
         type: "monto",
-        title: "Monto Recaudado en Eventos",
+        title: "Generosidad - Total Recaudado por Asociaciones",
         kicker: "Impacto de la comunidad",
         total: 890142,
         // ordenado de mayor a menor: el acento (fila 0) resalta el dominante
