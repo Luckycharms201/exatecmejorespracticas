@@ -29,7 +29,7 @@ export default function SlideJourney({ slide }) {
                 <div
                   className={[
                     "absolute w-36 text-center transition-all duration-300",
-                    above ? "bottom-1/2 mb-10" : "top-1/2 mt-10",
+                    above ? "bottom-1/2 mb-20" : "top-1/2 mt-20",
                   ].join(" ")}
                 >
                   <p
