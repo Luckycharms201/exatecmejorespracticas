@@ -6,6 +6,8 @@
  * Cuando ya hay activo real, se pasa `src` (y opcional `alt`) y el
  * componente muestra la foto a tamaño completo en lugar del marcador.
  */
+import { useEffect, useRef } from "react";
+
 export default function Placeholder({
   n,
   kind = "image",
@@ -15,6 +17,19 @@ export default function Placeholder({
   className = "",
 }) {
   const isVideo = kind === "video";
+
+  // arranca el video automáticamente al entrar a la slide (se remonta por
+  // slide, así que reinicia cada vez). En la presentación ya hubo gesto del
+  // usuario al avanzar, por lo que reproduce con sonido; si el navegador lo
+  // bloquea, quedan los controles.
+  const videoRef = useRef(null);
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v) {
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    }
+  }, []);
 
   if (src) {
     // OJO: no fijar `relative` aquí. Tailwind ordena `.relative` después de
@@ -30,10 +45,12 @@ export default function Placeholder({
       >
         {isVideo ? (
           <video
+            ref={videoRef}
             src={src}
+            autoPlay
             controls
             playsInline
-            preload="metadata"
+            preload="auto"
             className="h-full w-full bg-black object-contain"
           />
         ) : (
