@@ -96,8 +96,12 @@ function PstContent({ pst }) {
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
         {pst.events.map((ev) => (
           <div key={ev.name} className="flex items-center gap-8">
-            <div className="flex h-20 w-64 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 px-4 text-center text-lg font-black text-white uppercase shadow-[0_0_30px_-8px_var(--color-blue-500)]">
-              {ev.name}
+            <div className="flex h-28 w-72 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 px-4 text-center shadow-[0_0_30px_-8px_var(--color-blue-500)]">
+              {ev.logo ? (
+                <EventLogo logo={ev.logo} />
+              ) : (
+                <span className="text-lg font-black uppercase text-white">{ev.name}</span>
+              )}
             </div>
             <div className="flex flex-col gap-2">
               {ev.items.map((it, k) => (
@@ -112,6 +116,36 @@ function PstContent({ pst }) {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+/**
+ * Logo de evento PST recreado con tipografía: palabra(s) principal(es) en sans
+ * condensada pesada (Anton) y un conector en script (Pacifico) acento,
+ * superpuesto entre líneas — al estilo de los logos oficiales.
+ */
+function EventLogo({ logo }) {
+  const ANTON = { fontFamily: "Anton, system-ui, sans-serif" };
+  const SCRIPT = { fontFamily: "Pacifico, cursive" };
+  return (
+    <div className="relative flex flex-col items-center leading-[0.82] text-white">
+      <span style={ANTON} className="text-3xl tracking-wide">
+        {logo.top}
+      </span>
+      {logo.bottom && (
+        <span style={ANTON} className="text-3xl tracking-wide">
+          {logo.bottom}
+        </span>
+      )}
+      {logo.script && (
+        <span
+          style={SCRIPT}
+          className="text-accent absolute left-1/2 top-1/2 -translate-x-[55%] -translate-y-1/2 -rotate-6 text-2xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]"
+        >
+          {logo.script}
+        </span>
+      )}
     </div>
   );
 }

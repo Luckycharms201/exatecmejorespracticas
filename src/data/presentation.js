@@ -42,18 +42,21 @@ const JOURNEY_PST = {
   events: [
     {
       name: "Kickoff",
+      logo: { top: "KICKOFF" },
       items: [
         { who: "EXATEC", what: "Lanzamiento de convocatoria y nominación a Líderes de Generación" },
       ],
     },
     {
       name: "Patada del Éxito",
+      logo: { top: "PATADA", script: "del", bottom: "ÉXITO" },
       items: [
         { who: "LDG", what: "Entrega de fotografías de Líderes de Generación a Directores de Carrera" },
       ],
     },
     {
       name: "Ceremonia de la Luz",
+      logo: { top: "CEREMONIA", script: "de la", bottom: "LUZ" },
       items: [
         { who: "LDG", what: "Depósito de cartas en la cápsula del tiempo" },
         { who: "EXATEC", what: "Discurso del mundo EXATEC por Karla López + video reflexivo sobre la importancia de la comunidad" },
