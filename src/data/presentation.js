@@ -41,14 +41,22 @@ const JOURNEY_PST = {
   heading: "¿Cómo colabora EXATEC y LDG en los eventos de Por Siempre Tec?",
   events: [
     {
-      name: "Patada del Éxito",
-      items: [{ who: "LDG", what: "Entrega de foto de Generación a Director de Carrera" }],
+      name: "Kickoff",
+      items: [
+        { who: "EXATEC", what: "Lanzamiento de convocatoria y nominación a Líderes de Generación" },
+      ],
     },
     {
-      name: "Ceremonia de Luz",
+      name: "Patada del Éxito",
       items: [
-        { who: "LDG", what: "Depositan cartas a la Cápsula del Tiempo" },
-        { who: "EXATEC", what: "Speech · Video de Reflexión" },
+        { who: "LDG", what: "Entrega de fotografías de Líderes de Generación a Directores de Carrera" },
+      ],
+    },
+    {
+      name: "Ceremonia de la Luz",
+      items: [
+        { who: "LDG", what: "Depósito de cartas en la cápsula del tiempo" },
+        { who: "EXATEC", what: "Discurso del mundo EXATEC por Karla López + video reflexivo sobre la importancia de la comunidad" },
       ],
     },
   ],
