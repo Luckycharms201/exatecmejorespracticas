@@ -10,7 +10,7 @@ import Placeholder from "../ui/Placeholder";
 export default function SlideJourneyPopup({ slide }) {
   return (
     <div className="flex h-full w-full items-center justify-center py-2">
-      <div className="jp-pop border-blue-700 bg-blue-900/40 flex h-[82%] w-[88%] flex-col rounded-3xl border p-10 shadow-2xl">
+      <div className="jp-pop border-blue-700 bg-blue-900/40 flex h-[88%] w-[88%] flex-col rounded-3xl border p-8 shadow-2xl">
         <div className="min-h-0 flex-1">
           <PopupBody slide={slide} />
         </div>
@@ -47,8 +47,8 @@ function PopupBody({ slide }) {
   );
 
   return (
-    <div className="flex h-full w-full items-center gap-12">
-      <div className="min-w-0 flex-1">
+    <div className="flex h-full w-full items-center justify-center gap-14">
+      <div className="min-w-0 max-w-xl">
         <span className="text-accent text-xs font-semibold tracking-[0.35em] uppercase">
           Punto {String(slide.pointN).padStart(2, "0")}
         </span>
@@ -58,7 +58,7 @@ function PopupBody({ slide }) {
       <div
         className={[
           "flex h-full shrink-0 items-center justify-center",
-          isPhoto ? "w-[52%]" : "w-[42%]",
+          isPhoto ? "w-[52%]" : "w-[32%]",
         ].join(" ")}
       >
         {media}
