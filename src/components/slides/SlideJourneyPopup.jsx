@@ -1,19 +1,15 @@
-import { useSlideTimeline } from "../../hooks/useSlideTimeline";
 import Placeholder from "../ui/Placeholder";
 
 /**
  * Slide-popup del Journey LDG. Tarjeta centrada con layout consistente:
  * título + subtítulo grandes a la izquierda y media a la derecha; o media a
  * pantalla (video horizontal); o el slide de PST (estilo pst.png).
+ * Render estático para garantizar visibilidad.
  */
 export default function SlideJourneyPopup({ slide }) {
-  const scope = useSlideTimeline((tl) => {
-    tl.from(".jp-card", { opacity: 0, scale: 0.96, y: 16, duration: 0.5, ease: "power3.out" });
-  });
-
   return (
-    <div ref={scope} className="flex h-full w-full items-center justify-center py-2">
-      <div className="jp-card border-blue-700 bg-blue-900/40 flex h-full w-full flex-col rounded-3xl border p-9 shadow-2xl">
+    <div className="flex h-full w-full items-center justify-center py-2">
+      <div className="border-blue-700 bg-blue-900/40 flex h-full w-full flex-col rounded-3xl border p-9 shadow-2xl">
         <div className="min-h-0 flex-1">
           <PopupBody slide={slide} />
         </div>
