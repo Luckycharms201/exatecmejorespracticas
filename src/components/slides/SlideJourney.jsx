@@ -61,19 +61,26 @@ export default function SlideJourney({ slide }) {
       </div>
 
       {/* resultados */}
-      <div className="border-blue-700 grid grid-cols-3 gap-4 border-t pt-5">
-        {results.map((r, i) => (
-          <div key={i} className="flex items-baseline gap-3">
-            <div className="text-accent text-4xl font-black leading-none">
-              <CountUp value={r.participacion} suffix="%" duration={1.6} delay={0.2 + i * 0.12} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-text text-sm font-semibold">{r.period}</span>
-              <span className="text-text-dim text-xs">{r.lideres} líderes electos</span>
-            </div>
+      {results.length > 0 && (
+        <div className="border-blue-700 border-t pt-5">
+          <p className="text-accent mb-3 text-xs font-semibold tracking-[0.25em] uppercase">
+            Porcentaje de votos por generación:
+          </p>
+          <div className="grid grid-cols-3 gap-4">
+            {results.map((r, i) => (
+              <div key={i} className="flex items-baseline gap-3">
+                <div className="text-accent text-4xl font-black leading-none">
+                  <CountUp value={r.participacion} suffix="%" duration={1.6} delay={0.2 + i * 0.12} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-text text-sm font-semibold">{r.period}</span>
+                  <span className="text-text-dim text-xs">{r.lideres} líderes electos</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
