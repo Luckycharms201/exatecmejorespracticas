@@ -27,7 +27,12 @@ function PopupBody({ slide }) {
     return (
       <div className="flex h-full w-full items-center justify-center">
         <div className="aspect-video h-full max-w-full">
-          <Placeholder kind="video" src={slide.src} className="h-full w-full" />
+          <Placeholder
+            kind="video"
+            src={slide.src}
+            className="h-full w-full"
+            fullscreen
+          />
         </div>
       </div>
     );

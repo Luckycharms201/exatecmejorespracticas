@@ -15,21 +15,35 @@ export default function Placeholder({
   src,
   alt,
   className = "",
+  fullscreen = false,
 }) {
   const isVideo = kind === "video";
 
   // arranca el video automáticamente al entrar a la slide (se remonta por
   // slide, así que reinicia cada vez). En la presentación ya hubo gesto del
   // usuario al avanzar, por lo que reproduce con sonido; si el navegador lo
-  // bloquea, quedan los controles.
+  // bloquea, quedan los controles. Si `fullscreen`, además lo lleva a pantalla
+  // completa al entrar (aprovecha el gesto reciente de navegación; si el
+  // navegador lo bloquea, queda reproduciendo inline).
   const videoRef = useRef(null);
   useEffect(() => {
     const v = videoRef.current;
-    if (v) {
-      const p = v.play();
-      if (p && p.catch) p.catch(() => {});
+    if (!v) return;
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
+    if (fullscreen) {
+      const req =
+        v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen;
+      if (req) {
+        try {
+          const fp = req.call(v);
+          if (fp && fp.catch) fp.catch(() => {});
+        } catch {
+          /* sin pantalla completa: sigue inline */
+        }
+      }
     }
-  }, []);
+  }, [fullscreen]);
 
   if (src) {
     // OJO: no fijar `relative` aquí. Tailwind ordena `.relative` después de

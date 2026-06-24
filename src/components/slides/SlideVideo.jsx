@@ -45,6 +45,7 @@ export default function SlideVideo({ slide }) {
             src={ph.src}
             note={ph.note}
             className="h-full w-full"
+            fullscreen
           />
         </div>
       ) : (
