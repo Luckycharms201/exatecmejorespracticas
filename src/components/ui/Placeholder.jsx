@@ -28,11 +28,21 @@ export default function Placeholder({
           className,
         ].join(" ")}
       >
-        <img
-          src={src}
-          alt={alt ?? note ?? ""}
-          className="h-full w-full object-cover"
-        />
+        {isVideo ? (
+          <video
+            src={src}
+            controls
+            playsInline
+            preload="metadata"
+            className="h-full w-full bg-black object-contain"
+          />
+        ) : (
+          <img
+            src={src}
+            alt={alt ?? note ?? ""}
+            className="h-full w-full object-cover"
+          />
+        )}
       </div>
     );
   }
