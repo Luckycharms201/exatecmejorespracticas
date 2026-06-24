@@ -362,7 +362,7 @@ export const GROUPS = [
       journeyPopup("ldg-p6c", { media: "video-horizontal", src: "/media/PSTrecap.mp4" }),
       // PUNTO 7 — popup (foto horizontal + texto)
       journeyRoadmap(6),
-      journeyPopup("ldg-p7", { point: JOURNEY_POINTS[6], pointN: 7, media: "photo-horizontal", text: true }),
+      journeyPopup("ldg-p7", { point: JOURNEY_POINTS[6], pointN: 7, media: "photo-horizontal", text: true, src: "/media/seguimiento.webp" }),
     ],
   },
 ];

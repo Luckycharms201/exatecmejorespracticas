@@ -34,17 +34,17 @@ function PopupBody({ slide }) {
   }
 
   const point = slide.point ?? {};
-  const media =
-    slide.media === "photo-horizontal" ? (
-      <div className="aspect-video w-full">
-        <Placeholder kind="image" src={slide.src} className="h-full w-full" />
-      </div>
-    ) : (
-      // video vertical 9:16, dimensionado por altura
-      <div className="aspect-[9/16] h-full">
-        <Placeholder kind="video" src={slide.src} className="h-full w-full" />
-      </div>
-    );
+  const isPhoto = slide.media === "photo-horizontal";
+  const media = isPhoto ? (
+    <div className="aspect-video w-full">
+      <Placeholder kind="image" src={slide.src} className="h-full w-full" />
+    </div>
+  ) : (
+    // video vertical 9:16, dimensionado por altura
+    <div className="aspect-[9/16] h-full">
+      <Placeholder kind="video" src={slide.src} className="h-full w-full" />
+    </div>
+  );
 
   return (
     <div className="flex h-full w-full items-center gap-12">
@@ -55,7 +55,14 @@ function PopupBody({ slide }) {
         <h2 className="text-text mt-3 text-5xl leading-tight font-black">{point.title}</h2>
         <p className="text-text-dim mt-5 text-xl leading-relaxed">{point.sub}</p>
       </div>
-      <div className="flex h-full w-[42%] shrink-0 items-center justify-center">{media}</div>
+      <div
+        className={[
+          "flex h-full shrink-0 items-center justify-center",
+          isPhoto ? "w-[52%]" : "w-[42%]",
+        ].join(" ")}
+      >
+        {media}
+      </div>
     </div>
   );
 }
