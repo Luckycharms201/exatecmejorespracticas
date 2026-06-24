@@ -347,6 +347,14 @@ export const GROUPS = [
     short: "LDG",
     hub: { angle: 30 },
     slides: [
+      {
+        id: "ldg-portada",
+        type: "cover",
+        title: "Líderes de Generación",
+        kicker: "Mejores Prácticas · Monterrey",
+        logo: "/brand/logo-ldg-blanco.webp",
+        logoAlt: "Líderes de Generación",
+      },
       // PUNTO 1 — popup doble (video vertical + texto → video horizontal)
       journeyRoadmap(0),
       journeyPopup("ldg-p1a", { point: JOURNEY_POINTS[0], pointN: 1, media: "video-vertical", text: true, src: "/media/campana_ldg.mp4" }),
