@@ -128,24 +128,26 @@ function PstContent({ pst }) {
 function EventLogo({ logo }) {
   const ANTON = { fontFamily: "Anton, system-ui, sans-serif" };
   return (
-    <div className="flex flex-col items-center leading-[0.9] text-white">
+    <div className="relative flex flex-col items-center leading-[0.9] text-white">
       <span style={ANTON} className="text-3xl tracking-wide">
         {logo.top}
       </span>
+      {logo.bottom && (
+        <span style={ANTON} className="text-3xl tracking-wide">
+          {logo.bottom}
+        </span>
+      )}
       {logo.script && (
         <span
           style={{
             fontFamily: "Pacifico, cursive",
-            transform: "translateX(-30px) rotate(-6deg)",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-95%, -50%) rotate(-6deg)",
           }}
-          className="text-accent my-0.5 text-xl leading-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]"
+          className="text-accent absolute text-xl leading-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
         >
           {logo.script}
-        </span>
-      )}
-      {logo.bottom && (
-        <span style={ANTON} className="text-3xl tracking-wide">
-          {logo.bottom}
         </span>
       )}
     </div>
