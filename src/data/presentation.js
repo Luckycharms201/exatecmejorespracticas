@@ -385,7 +385,7 @@ export const GROUPS = [
         // ordenado de mayor a menor: el acento (fila 0) resalta el dominante
         breakdown: [
           { name: "EXATEC Blue Open", amount: 516800 },
-          { name: "Borregos Flag Cup", amount: 186200 },
+          { name: "Borregos Flag Cup", amount: 176000 },
           { name: "EXATEC Wealth Strategy", amount: 90000 },
           { name: "Arte, Cultura y Conexión", amount: 70000 },
           { name: "Otros", amount: 27142 },
