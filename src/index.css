@@ -87,6 +87,17 @@ button {
 .jp-pop { animation: jp-pop 0.42s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .jp-fade { animation: jp-fade 0.4s ease-out; }
 
+/* Crossfade entre slides: la capa saliente se desvanece mientras la entrante
+   aparece con su propia animación. */
+@keyframes xfade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.xfade-out {
+  animation: xfade-out 0.45s ease forwards;
+  pointer-events: none;
+}
+
 /* Gafetes 3D — flip continuo frente↔reverso. Estado base (sin animación)
    muestra el frente, así que nada se rompe si la animación no corre. */
 @keyframes gafete-flip {
