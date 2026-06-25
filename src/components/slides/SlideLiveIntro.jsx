@@ -26,8 +26,7 @@ export default function SlideLiveIntro({ slide }) {
         ".intro-rule",
         { scaleX: 0, opacity: 0, duration: 0.9, ease: "power3.inOut" },
         "-=0.55"
-      )
-      .from(".intro-hint", { opacity: 0, y: 16, duration: 0.6 }, "-=0.2");
+      );
   });
 
   return (
@@ -51,10 +50,6 @@ export default function SlideLiveIntro({ slide }) {
         className="intro-rule bg-accent h-[3px] w-48 origin-center rounded-full"
         style={{ boxShadow: "0 0 24px -2px var(--color-accent)" }}
       />
-
-      <p className="intro-hint text-text-dim mt-2 text-xs tracking-[0.3em] uppercase">
-        → para comenzar · F pantalla completa
-      </p>
     </div>
   );
 }

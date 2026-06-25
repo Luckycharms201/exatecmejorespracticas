@@ -34,9 +34,11 @@ export default function LiveStage({ slide, liveN, total, isFullscreen }) {
       {/* barra de progreso segmentada + pista de teclado */}
       <div className="flex flex-col gap-2.5 px-10 pb-6">
         <LiveProgressBar liveN={liveN} />
-        <p className="text-text-dim text-center text-[10px] tracking-[0.25em] uppercase">
-          ← → NAVEGAR · F {isFullscreen ? "SALIR DE " : ""}PANTALLA COMPLETA
-        </p>
+        {!isIntro && (
+          <p className="text-text-dim text-center text-[10px] tracking-[0.25em] uppercase">
+            ← → NAVEGAR · F {isFullscreen ? "SALIR DE " : ""}PANTALLA COMPLETA
+          </p>
+        )}
       </div>
     </div>
   );
