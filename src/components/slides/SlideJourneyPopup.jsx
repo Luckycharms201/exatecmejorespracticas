@@ -123,35 +123,18 @@ function PstContent({ pst }) {
 }
 
 /**
- * Logo de evento PST recreado con tipografía: palabra(s) principal(es) en sans
- * condensada pesada (Anton) y un conector en script (Pacifico) acento,
- * superpuesto entre líneas — al estilo de los logos oficiales.
+ * Logo de evento PST con tipografía: el texto (`logo.top`) en sans condensada
+ * pesada (Anton), blanco y centrado — mismo estilo para todos los recuadros
+ * (KICKOFF, PATADA DEL ÉXITO, CEREMONIA DE LA LUZ). Si no cabe en una línea,
+ * salta de línea dentro del recuadro.
  */
 function EventLogo({ logo }) {
-  const ANTON = { fontFamily: "Anton, system-ui, sans-serif" };
   return (
-    <div className="relative flex flex-col items-center leading-[0.9] text-white">
-      <span style={ANTON} className="text-3xl tracking-wide">
-        {logo.top}
-      </span>
-      {logo.bottom && (
-        <span style={ANTON} className="text-3xl tracking-wide">
-          {logo.bottom}
-        </span>
-      )}
-      {logo.script && (
-        <span
-          style={{
-            fontFamily: "Pacifico, cursive",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-95%, -50%) rotate(-6deg)",
-          }}
-          className="text-accent absolute text-xl leading-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
-        >
-          {logo.script}
-        </span>
-      )}
-    </div>
+    <span
+      style={{ fontFamily: "Anton, system-ui, sans-serif" }}
+      className="block w-full px-5 text-center text-3xl leading-[0.95] tracking-wide text-white"
+    >
+      {logo.top}
+    </span>
   );
 }
