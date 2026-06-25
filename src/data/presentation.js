@@ -247,6 +247,7 @@ export const GROUPS = [
         body: "Una página con todos los enlaces clave en la mano del asistente.",
         urlLabel: "raclinks.pages.dev",
         url: "https://raclinks.pages.dev/",
+        qr: "/media/qr_links.png",
       },
       {
         id: "rac-nps",

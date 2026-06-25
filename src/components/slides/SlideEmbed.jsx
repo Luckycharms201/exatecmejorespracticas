@@ -32,10 +32,30 @@ export default function SlideEmbed({ slide }) {
               {slide.body}
             </p>
           )}
-          {slide.urlLabel && (
-            <span className="emb-note border-blue-700 text-accent mt-6 inline-block rounded-full border px-5 py-2 text-sm tracking-wide">
-              {slide.urlLabel}
-            </span>
+          {slide.qr ? (
+            <div className="emb-note mt-7 flex items-center gap-5">
+              <img
+                src={slide.qr}
+                alt="Código QR a la página del evento"
+                className="h-36 w-36 shrink-0"
+              />
+              <div className="flex flex-col items-start gap-3">
+                <p className="text-text text-lg font-bold tracking-wide">
+                  Escanéame
+                </p>
+                {slide.urlLabel && (
+                  <span className="border-blue-700 text-accent inline-block rounded-full border px-5 py-2 text-sm tracking-wide">
+                    {slide.urlLabel}
+                  </span>
+                )}
+              </div>
+            </div>
+          ) : (
+            slide.urlLabel && (
+              <span className="emb-note border-blue-700 text-accent mt-6 inline-block rounded-full border px-5 py-2 text-sm tracking-wide">
+                {slide.urlLabel}
+              </span>
+            )
           )}
         </div>
 
