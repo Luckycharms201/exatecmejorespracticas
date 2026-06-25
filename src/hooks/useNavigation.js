@@ -146,16 +146,22 @@ export function useNavigation() {
       // view === "section" | "live": recorrido lineal con flechas.
       // Si una slide interactiva tomó el control (navLock), no avanzamos:
       // sólo dejamos pasar Escape para salir.
+      // Teclas de avance/retroceso, incluyendo las que mandan los clickers de
+      // presentación (la mayoría usa PageDown/PageUp; algunos Enter/flechas).
       switch (e.key) {
         case "ArrowRight":
         case "PageDown":
         case " ":
+        case "ArrowDown":
+        case "Enter":
           if (navLock) break;
           e.preventDefault();
           next();
           break;
         case "ArrowLeft":
         case "PageUp":
+        case "ArrowUp":
+        case "Backspace":
           if (navLock) break;
           e.preventDefault();
           prev();
